@@ -1,0 +1,44 @@
+#Leviathan 0
+
+#First we need to log into the level using ssh given and the username
+
+ssh leviathan.labs.overthewire.org -p2223 -l leviathan0
+
+#the level starting instructions gives us the password
+
+leviathan0
+
+#Since there is not any instructions besides to check the directories
+#I start to look at the files with ls and ls -la
+
+ls 
+
+ls -la
+
+#I can now see there is some files
+#but I also want to see what cat /etc/leviathan_pass does
+
+cat /etc/leviathan_pass
+
+#it says that it is a directory
+#lets go in and read the directory
+
+cd /etc/leviathan_pass
+
+#we can now see that there are all the levels and passwords. Cool beans
+#so there are 7 levels and passwords
+#lets see if any of the files early hold anything like ".backup"
+#I need to exit then log back in with the password to go back to the files
+#then access .backup
+
+cd .backup
+
+#this shows some files and bookmarks
+#it mentions leviathan1 so lets grep to quick find leviathan1
+#and see what's in leviathan1 bookmarks
+
+grep leviathan1 bookmarks.html
+
+#The quick find reads 
+#" "http://leviathan.labs.overthewire.org/passwordus.html | This will be fixed later, the password for leviathan1 is rioGegei8m" ADD_DATE="1155384634" LAST_CHARSET="ISO-8859-1" ID="rdf:#$2wIU71">password to leviathan1</A> "
+# "rioGegei8m " is next password 
