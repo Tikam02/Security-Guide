@@ -1,0 +1,60 @@
+log in to leviathan level 1 --> ssh leviathan.labs.overthewire.org -p2223
+-l leviathan1 
+
+#your password for leviathan1 from previous level
+
+#i tried ls and ls -la
+it shows check
+$ check
+
+#then try to read all the permission files, it is like:
+$ls -la 
+-r-sr-x--- 1 leviathan2 leviathan1 7656 May 10 18:07 check
+|Permission|contents of dir/file|user owner|group name|size|date|Time|name of Dir/file|
+# try reading it with --- $ cat check --> it's garbage not working.
+.....
+# I think it is a compile file....
+
+because when you run 
+$check   //it will show
+/bin/sh: 1: check: not found.
+
+--------------------------------------------------------------------------
+A dot slash is a dot followed immediately by a forward slash ( ./ ). It is used in Linux and Unix to execute a compiled program in the current directory. For example, if you had an executable file in the current directory called "hope" and typed "hope" at the command line, you would get an error, such as "-bash: hope: command not found." The error occurs because "hope" is neither a built-in command or an executable file found in your PATH environment variable.
+--------------------------------------------------------------------------
+# then try running ./check
+$./check
+password:
+
+#it's asking for a password
+#typing in leviathan1 doesn't work so we may need to look around
+#let's try ltrace ./check that can show 
+#the background string code that is looking
+#for the password
+
+ltrace ./check
+
+#it is showing the code and asking for the password again.
+when you put in the wrong code it shows the password it is looking for in
+the " strcmp " which stands for string to compare, and it is comparing 
+the bad password I typed in, with the right password which is " sex " 
+so lets ./check again and type in the right password
+
+./check
+
+sex
+
+# the next section is blank 
+# to see who the user is that we are logged in as type "id" or "whoami"
+
+$ id
+uid=12002(leviathan2) gid=12001(leviathan1) groups=12001(leviathan1)
+
+$ ls 
+check
+$ cat /etc/leviathan_pass/leviathan2
+ougahZi8Ta             <<<<<<------Password-------------->>>>>>
+
+
+
+
