@@ -34,8 +34,10 @@ list files and directories with full path <br>
 
 As you can see, ptrace is a really useful system call for tracing and manipulating other programs.<br>
 <b>strace</b> is a system call and signal tracer.It is primarily used to trace system call(that is,funtion calls made from programs to the kernels),print the arguments passed to the system calls,print return values,timing information and more.It can also trace and output information about signals recievedd by the process.strace relies on the ptrace system calls.<br>
+
 <b>ltrace</b>is a library call tracer and it is primarily used  to trace calls made by programs to library functions.it can also trace system calls and signals,like strace.
 Both have similar command line options for thigs like printing timing information,return values,attaching to running processes and following forked processes.<br>
+
 The <b>ptrace</b> system call is incredibly powerful and can be used to trace system calls,overwrite memory in a runnning program,read registers in a running program and more.
 <b>strace</b>and<b>ltrace</b>both use <b>PTRACE_SYSCALL</b> to trace system calls.<b>ltrace</b> also uses <b>PTRACE_POKETEXT</b> to overwrite memory in a program in order to write a special instruction which halts the program.
 </p>
