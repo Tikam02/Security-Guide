@@ -1,0 +1,20 @@
+leviathan4@leviathan:~$ 
+leviathan4@leviathan:~$ ls -la
+total 24
+drwxr-xr-x  3 root root       4096 May 10 18:27 .
+drwxr-xr-x 10 root root       4096 May 10 18:27 ..
+-rw-r--r--  1 root root        220 May 15  2017 .bash_logout
+-rw-r--r--  1 root root       3526 May 15  2017 .bashrc
+-rw-r--r--  1 root root        675 May 15  2017 .profile
+dr-xr-x---  2 root leviathan4 4096 May 10 18:27 .trash
+leviathan4@leviathan:~$ cd .trash
+leviathan4@leviathan:~/.trash$ ls
+bin
+leviathan4@leviathan:~/.trash$ ./bin
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 
+leviathan4@leviathan:~/.trash$ cd
+leviathan4@leviathan:~$ exit
+ 
+
+convert those binary numbers to ascii just by bin2ascii or use python3
+you'll get your password.
