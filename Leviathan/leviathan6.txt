@@ -1,0 +1,82 @@
+leviathan6@leviathan:~$ ls -la
+total 28
+drwxr-xr-x  2 root       root       4096 May 10 18:27 .
+drwxr-xr-x 10 root       root       4096 May 10 18:27 ..
+-rw-r--r--  1 root       root        220 May 15  2017 .bash_logout
+-rw-r--r--  1 root       root       3526 May 15  2017 .bashrc
+-rw-r--r--  1 root       root        675 May 15  2017 .profile
+-r-sr-x---  1 leviathan7 leviathan6 7656 May 10 18:27 leviathan6
+leviathan6@leviathan:~$ ./leviathan6
+usage: ./leviathan6 <4 digit code>
+leviathan6@leviathan:~$ ltrace ./leviathan6
+__libc_start_main(0x565556c0, 1, 0xffffd744, 0x56555780 <unfinished ...>
+printf("usage: %s <4 digit code>\n", "./leviathan6"usage: ./leviathan6 <4 digit code>
+)                                                                 = 35
+exit(-1 <no return ...>
++++ exited (status 255) +++
+leviathan6@leviathan:~$ ./leviathan6 1234
+Wrong
+leviathan6@leviathan:~$ ./leviathan6 7894
+Wrong
+leviathan6@leviathan:~$ strace ./leviathan6
+execve("./leviathan6", ["./leviathan6"], [/* 20 vars */]) = 0
+strace: [ Process PID=15430 runs in 32 bit mode. ]
+brk(NULL)                               = 0x56558000
+fcntl64(0, F_GETFD)                     = 0
+fcntl64(1, F_GETFD)                     = 0
+fcntl64(2, F_GETFD)                     = 0
+access("/etc/suid-debug", F_OK)         = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xf7fd2000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=35506, ...}) = 0
+mmap2(NULL, 35506, PROT_READ, MAP_PRIVATE, 3, 0) = 0xf7fc9000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib32/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\3\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0\204\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1787812, ...}) = 0
+mmap2(NULL, 1796604, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xf7e12000
+mmap2(0xf7fc3000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b0000) = 0xf7fc3000
+mmap2(0xf7fc6000, 10748, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xf7fc6000
+close(3)                                = 0
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xf7e10000
+set_thread_area({entry_number:-1, base_addr:0xf7e10700, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0 (entry_number:12)
+mprotect(0xf7fc3000, 8192, PROT_READ)   = 0
+mprotect(0x56556000, 4096, PROT_READ)   = 0
+mprotect(0xf7ffc000, 4096, PROT_READ)   = 0
+munmap(0xf7fc9000, 35506)               = 0
+fstat64(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 12), ...}) = 0
+brk(NULL)                               = 0x56558000
+brk(0x56579000)                         = 0x56579000
+write(1, "usage: ./leviathan6 <4 digit cod"..., 35usage: ./leviathan6 <4 digit code>
+) = 35
+exit_group(-1)                          = ?
++++ exited with 255 +++
+leviathan6@leviathan:~$ for i in {0000..9999}; do ./leviathan6 $i; done
+$ cat /etc/leviathan_pass/leviathan7
+ahy7MaeBo9
+$
+
+
+#we see leviathan6 file similar to what level5 had
+#i did ./leviathan6
+
+./leviathan6
+
+#it is asking for a 4 digit code we don't have
+#trying to cd into it will not work
+#using ltrace we can see there is " <4 digit code> "
+#we may need to make a tmp file to work around into it using script
+#so far kali linux does not like nano sh so needed to write a manual script
+
+for i in {0000..9999}; do ./leviathan6 $i; done
+
+#this makes us look through the code for specific pins between 0000-9999 to find for the 4 digit
+#if we type whoami it will let us know we are now inside the leviathan7 file
+#if we cat the password, we can cat for the password now
+
+cat /etc/leviathan_pass/leviathan7
+
+#password is ahy7MaeBo9
