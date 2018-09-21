@@ -1,0 +1,15 @@
+leviathan7@leviathan:~$ ls -la
+total 24
+drwxr-xr-x  2 root       root       4096 May 10 18:27 .
+drwxr-xr-x 10 root       root       4096 May 10 18:27 ..
+-rw-r--r--  1 root       root        220 May 15  2017 .bash_logout
+-rw-r--r--  1 root       root       3526 May 15  2017 .bashrc
+-rw-r--r--  1 root       root        675 May 15  2017 .profile
+-r--r-----  1 leviathan7 leviathan7  178 May 10 18:27 CONGRATULATIONS
+leviathan7@leviathan:~$ ls
+CONGRATULATIONS
+leviathan7@leviathan:~$ cat CONGRATULATIONS
+Well Done, you seem to have used a *nix system before, now try something more serious.
+(Please don't post writeups, solutions or spoilers about the games on the web. Thank you!)
+leviathan7@leviathan:~$ 
+
