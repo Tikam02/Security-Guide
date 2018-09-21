@@ -1,0 +1,116 @@
+leviathan3@leviathan:~$ ls
+level3
+leviathan3@leviathan:~$ ls -la
+total 32
+drwxr-xr-x  2 root       root        4096 May 10 18:27 .
+drwxr-xr-x 10 root       root        4096 May 10 18:27 ..
+-rw-r--r--  1 root       root         220 May 15  2017 .bash_logout
+-rw-r--r--  1 root       root        3526 May 15  2017 .bashrc
+-rw-r--r--  1 root       root         675 May 15  2017 .profile
+-r-sr-x---  1 leviathan4 leviathan3 10488 May 10 18:27 level3
+leviathan3@leviathan:~$ ./level3
+Enter the password> level3
+bzzzzzzzzap. WRONG
+leviathan3@leviathan:~$ ltrace ./level3
+__libc_start_main(0x565557b4, 1, 0xffffd744, 0x56555870 <unfinished ...>
+strcmp("h0no33", "kakaka")                                                                                           = -1
+printf("Enter the password> ")                                                                                       = 20
+fgets(Enter the password> kakaka
+"kakaka\n", 256, 0xf7fc55a0)                                                                                   = 0xffffd550
+strcmp("kakaka\n", "snlprintf\n")                                                                                    = -1
+puts("bzzzzzzzzap. WRONG"bzzzzzzzzap. WRONG
+)                                                                                           = 19
++++ exited (status 0) +++
+leviathan3@leviathan:~$ ltrace ./level3
+__libc_start_main(0x565557b4, 1, 0xffffd744, 0x56555870 <unfinished ...>
+strcmp("h0no33", "kakaka")                                                                                           = -1
+printf("Enter the password> ")                                                                                       = 20
+fgets(Enter the password> kakaka
+"kakaka\n", 256, 0xf7fc55a0)                                                                                   = 0xffffd550
+strcmp("kakaka\n", "snlprintf\n")                                                                                    = -1
+puts("bzzzzzzzzap. WRONG"bzzzzzzzzap. WRONG
+)                                                                                           = 19
++++ exited (status 0) +++
+leviathan3@leviathan:~$ ltrace ./level3
+__libc_start_main(0x565557b4, 1, 0xffffd744, 0x56555870 <unfinished ...>
+strcmp("h0no33", "kakaka")                                                                                           = -1
+printf("Enter the password> ")                                                                                       = 20
+fgets(Enter the password> sn1printf
+"sn1printf\n", 256, 0xf7fc55a0)                                                                                = 0xffffd550
+strcmp("sn1printf\n", "snlprintf\n")                                                                                 = -1
+puts("bzzzzzzzzap. WRONG"bzzzzzzzzap. WRONG
+)                                                                                           = 19
++++ exited (status 0) +++
+leviathan3@leviathan:~$ ltrace ./level3
+__libc_start_main(0x565557b4, 1, 0xffffd744, 0x56555870 <unfinished ...>
+strcmp("h0no33", "kakaka")                                                                                           = -1
+printf("Enter the password> ")                                                                                       = 20
+fgets(Enter the password> snlprintf
+"snlprintf\n", 256, 0xf7fc55a0)                                                                                = 0xffffd550
+strcmp("snlprintf\n", "snlprintf\n")                                                                                 = 0
+puts("[You've got shell]!"[You've got shell]!
+)                                                                                          = 20
+geteuid()                                                                                                            = 12003
+geteuid()                                                                                                            = 12003
+setreuid(12003, 12003)                                                                                               = 0
+system("/bin/sh"$ ls -la
+total 32
+drwxr-xr-x  2 root       root        4096 May 10 18:27 .
+drwxr-xr-x 10 root       root        4096 May 10 18:27 ..
+-rw-r--r--  1 root       root         220 May 15  2017 .bash_logout
+-rw-r--r--  1 root       root        3526 May 15  2017 .bashrc
+-rw-r--r--  1 root       root         675 May 15  2017 .profile
+-r-sr-x---  1 leviathan4 leviathan3 10488 May 10 18:27 level3
+$ cd /etc/
+$ ls
+NetworkManager		console-setup		emacs	     identd.conf      ld.so.conf.d    mailcap.order   pam.conf	 rc4.d	       shells			  tmpfiles.d
+X11			cron.d			environment  identd.key       ldap	      manpath.config  pam.d	 rc5.d	       skel			  ucf.conf
+adduser.conf		cron.daily		fstab	     inetd.conf       leviathan_pass  mime.types      passwd	 rc6.d	       ssh			  udev
+adjtime			cron.hourly		gai.conf     inetd.d	      libaudit.conf   mke2fs.conf     passwd-	 rcS.d	       ssl			  ufw
+alternatives		cron.monthly		gdb	     init	      lighttpd	      modprobe.d      perl	 resolv.conf   staff-group-for-usr-local  update-motd.d
+apache2			cron.weekly		groff	     init.d	      locale.alias    modules	      profile	 rmt	       subgid			  vim
+apparmor		crontab			group	     initramfs-tools  locale.gen      modules-load.d  profile.d  rpc	       subgid-			  wgetrc
+apparmor.d		dbus-1			group-	     inputrc	      localtime       motd	      protocols  rsyslog.conf  subuid			  xdg
+apt			debconf.conf		grub.d	     iproute2	      logcheck	      mtab	      puppet	 rsyslog.d     subuid-			  xml
+bash.bashrc		debian_version		gshadow      iptables	      login.defs      nanorc	      python	 screenrc      sudoers
+bash_completion		default			gshadow-     iptables.rules   logrotate.conf  network	      python2.7  securetty     sudoers.d
+bash_completion.d	deluser.conf		gss	     issue	      logrotate.d     networks	      python3	 security      supervisor
+bindresvport.blacklist	dhcp			host.conf    issue.net	      ltrace.conf     newt	      python3.5  selinux       sysctl.conf
+binfmt.d		dictionaries-common	hostname     kernel	      machine-id      nsswitch.conf   rc0.d	 services      sysctl.d
+ca-certificates		discover-modprobe.conf	hosts	     kernel-img.conf  magic	      ntp.conf	      rc1.d	 sgml	       systemd
+ca-certificates.conf	discover.conf.d		hosts.allow  ld.so.cache      magic.mime      opt	      rc2.d	 shadow        terminfo
+calendar		dpkg			hosts.deny   ld.so.conf       mailcap	      os-release      rc3.d	 shadow-       timezone
+$ cat /etc/leviathan_pass/leviathan3
+Ahdiemoo1j
+$ cat /etc/leviathan_pass/leviathan4
+cat: /etc/leviathan_pass/leviathan4: Permission denied
+$ ./level3
+/bin/sh: 6: ./level3: not found
+$ id 
+uid=12003(leviathan3) gid=12003(leviathan3) groups=12003(leviathan3)
+$ cd ./level3
+/bin/sh: 8: cd: can't cd to ./level3
+$ ./level3
+/bin/sh: 9: ./level3: not found
+$ cat /etc/leviathan_pass/leviathan4
+cat: /etc/leviathan_pass/leviathan4: Permission denied
+$ ./level3
+/bin/sh: 11: ./level3: not found
+$ level3
+/bin/sh: 12: level3: not found
+$ ./level3 snlprintf
+/bin/sh: 13: ./level3: not found
+$ exit
+ <no return ...>
+--- SIGCHLD (Child exited) ---
+<... system resumed> )                                                                                               = 32512
++++ exited (status 0) +++
+leviathan3@leviathan:~$ ls
+level3
+leviathan3@leviathan:~$ ./level3
+Enter the password> snlprintf
+[You've got shell]!
+$ cat /etc/leviathan_pass/leviathan4
+vuH0coox6m
+$ 
+
