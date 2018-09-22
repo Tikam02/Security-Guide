@@ -1,5 +1,11 @@
 <h1>Commands Used In this CTF/Wargame</h1>
 <hr>
+<b>Commands Used</b>
+<li>ls</li>
+<li>ln</li>
+<li>grep</li>
+<li>ptrace-ltrace-strace</li>
+<hr>
 <li>ls</li>
 <p> $ ls [optional ] [file|dir] </p>
 <p>ls -a --> List all files including hidden file starting with '.'<br>
