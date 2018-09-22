@@ -1,9 +1,9 @@
 <h1>Narnia</h1>
 <hr>
-<p><b>Summary : </b>
-<b>Difficulty : 2/10</b>
-<b>Levels : 10</b>
-<b>Platform : Linux/x86</b>
+<p><b>Summary : </b><br>
+<b>Difficulty : 2/10</b><br>
+<b>Levels : 10</b><br>
+<b>Platform : Linux/x86</b><br>
 </p>
 <hr>
 <b>Coommands Used</b>
