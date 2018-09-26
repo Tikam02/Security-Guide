@@ -59,5 +59,15 @@ Trying to execute EGG!
 nairiepecu
 -----------------------------------------------------------------------------------------------------------------------
 
+The objective of this level is to execute a custom payload, preferably one that allows us read the password for the next level.
+
+A little bit of extra information, the environ variable in a binary stores environment variables in the memory space of the executing binary, and a pointer to this pointer can be found at the beginning of execution by examining 16 bytes from $ebp after it has been initialized (remember *((char **) $ebp + 0x10 if examining in gdb or simply *environ with symbols)
+
+However since the program is loading our environment variable directly by calling getenv, this information won't be necessary just yet.
+
+A common mistake would be that the program expects you to set a shell command to be executed at EGG, i.e set EGG=/bin/sh. However what actually needs to happen is whatever is stored at EGG is going to be executed as instructions, so we need to write position independent 'shellcode'. 
+
+----------------------------------------------------------------------------------------------------------------------------
+
 
 

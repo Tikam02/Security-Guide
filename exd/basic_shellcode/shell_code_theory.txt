@@ -1,0 +1,43 @@
+EXECVE(2)                           Linux Programmer's Manual                           EXECVE(2)
+
+NAME
+       execve - execute program
+
+SYNOPSIS
+       #include <unistd.h>
+
+       int execve(const char *filename, char *const argv[],
+                  char *const envp[]);
+
+DESCRIPTION
+       execve()  executes  the  program  pointed to by filename.  This causes the program that is
+       currently being run by the calling process to be replaced with a new program,  with  newly
+       initialized stack, heap, and (initialized and uninitialized) data segments.
+
+
+
+The 3 arguments must contain the following:
+
+    filename must point to a string containing the path of the binary we want to execute. In our case, this would be the string "/bin/sh". If you are not from the C world, "point" means the address of the string, and not the string itself.
+    argv[] is the list of arguments to the program. Most programs will use mandatory / option arguments to run e.g. telnet 192.168.1.10 The argument here is "192.168.1.10". In our case, we only want to execute "/bin/sh" without any more arguments, so the argument list is just a NULL pointer (0x00000000 address). However, there is a twist :) by convention, the first argument is the filename we want executed. So, argv[] would really be ['/bin/sh'. 0x00000000]
+    envp[] is the list of any additional environment options you want to pass to the program in key:value format. This will be NULL pointer / 0x00000000 for our purpose
+----------------------------------------------------------------------------------------
+
+System Call With 0x80
+
+EAX = System Call Number
+EBX = 1st Argument
+ECX = 2nd Argument
+EDX = 3rd Argument
+-----------------------------------------------------------------------------------------
+System Call Number for EXECVE is = 11
+------------------------------------------------------------------------------------------
+int execve(const char *filename, char *const argv[], char *const envp[]);
+
+const char *filename = /bin/sh,0x0 == EBX
+char *const argv[]  = Address of /bin/sh,0x00000000 == ECX
+char *const envp[] =  0x00000000 == EDX
+-------------------------------------------------------------------------------------------
+
+Code Here: :)
+
