@@ -1,0 +1,5 @@
+[1]gdb commands:
+gdb -q ./narnia
+(gdb)pattern_create 150
+(gdb)pattern_offset 
+
