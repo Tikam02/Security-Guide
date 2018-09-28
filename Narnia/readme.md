@@ -10,3 +10,5 @@
 <li>xxd</li>
 <li>dd</li>
 <li>hexdump</li>
+<li>gdb</li>
+<li>python -c</li>
