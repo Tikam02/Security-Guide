@@ -11,7 +11,8 @@
 <p>Stack is a special region of our process’s memory which is used to store local variables used inside the function, parameters passed through a function and their return addresses. Whenever a new local variable is declared it is pushed onto the stack. All the variables associated with a function are deleted and memory they use is freed up, after the function finishes running. The user does not have any need to free up stack space manually. Stack is Last-In-First-Out data structure.<p><br>
 <p>In our computer’s memory, stack size is limited. If a program uses more memory space than the stack size then stack overflow will occur and can result in a program crash. There are two cases in which stack overflow can occur:</p>
 
-<p> If we declare large number of local variables or declare an array or matrix or any higher dimensional array of large size can result in overflow of stack. </p>
+<p> If we declare large number of local variables or declare an array or matrix or any higher dimensional array of large size can result in overflow of stack.</p>
+
 ```c
 // C program to demonstrate stack overflow 
 // by allocating a large local memory 
@@ -27,6 +28,7 @@ int main() {
 <p>
 function recursively call itself infinite times then the stack is unable to store large number of local variables used by every function call and will result in overflow of stack. 
 </p>
+
 ```c
 
 // C program to demonstrate stack overflow 
@@ -52,12 +54,10 @@ int main()
 <p>Stack overflows are the best understood and the most common form of buffer overflows. The basics of a stack overflow is simple:
 
 <li>There are two buffers, a source buffer containing arbitrary input (presumably from the attacker), and a destination buffer that is too small for the attack input. The second buffer resides on the stack and somewhat adjacent to the function return address on the stack.</li>
-
-   <li> The faulty code does not check that the source buffer is too large to fit in the destination buffer. It copies the attack input to the destination buffer, overwriting additional information on the stack (such as the function return address).</li>
-
-  <li>  When the function returns, the CPU unwinds the stack frame and pops the (now modified) return address from the stack.</li>
-
-  <li>  Control does not return to the function as it should. Instead, arbitrary code (chosen by the attacker when crafting the initial input) is executed.</li> <p><br>
+<li> The faulty code does not check that the source buffer is too large to fit in the destination buffer. It copies the attack input to the destination buffer, overwriting additional information on the stack (such as the function return address).</li>
+<li>  When the function returns, the CPU unwinds the stack frame and pops the (now modified) return address from the stack.</li>
+ <li>  Control does not return to the function as it should. Instead, arbitrary code (chosen by the attacker when crafting the initial input) is executed.</li> <p>
+  <br>
 <h3>Heap Overflow</h3>
 <p>Heap is a region of process’s memory which is used to store dynamic variables. These variables are allocated using malloc() and calloc() functions and resize using realloc() function, which are inbuilt functions of C. These variables can be accessed globally and once we allocate memory on heap it is our responsibility to free that memory space after use. There are two situations which can result in heap overflow:
 
@@ -65,6 +65,7 @@ int main()
 </p>
 
 ```c
+
 // C program to demonstrate heap overflow 
 // by continuously allocating memory 
     #include<stdio.h>
@@ -82,6 +83,7 @@ int main()
 <p>[2] If we dynamically allocate large number of variables.
 // C program to demonstrate heap overflow 
 // by allocating large memory </p>
+
 ```c
 
 include<stdio.h> 
@@ -91,5 +93,4 @@ int main()
     int *ptr = (int *)malloc(sizeof(int)*10000000)); 
 } 
 ```
-</p>
 
