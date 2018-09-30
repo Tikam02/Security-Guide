@@ -92,4 +92,40 @@ int main()
     int *ptr = (int *)malloc(sizeof(int)*10000000)); 
 } 
 ```
+<h3>Format String</h3>
+<p>Format string buffer overflows (usually called "format string vulnerabilities") are highly specialized buffer overflows that can have the same effects as other buffer overflow attacks. Basically, format string vulnerabilities take advantage of the mixture of data and control information in certain functions, such as C/C++'s printf. The easiest way to understand this class of vulnerability is with an example: 
+</p>
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
+void main(void) {
+    char str[100] = scanf("%s");
+    printf("%s", str);
+}
+```
+<p>This simple program takes input from the user and displays it back on the screen. The string %s means that the other parameter, str, should be displayed as a string. This example is not vulnerable to a format string attack, but if one changes the last line, it becomes exploitable: </p>
+```c
+printf(str)
+```
+<h3>Unicode Overflow</h3>
+<p>Unicode exploits are a bit more difficult to do than typical buffer overflows as demonstrated in Anley’s 2002 paper, but it is wrong to assume that by using Unicode, you are protected against buffer overflows. Examples of Unicode overflows include Code Red, a devastating Trojan with an estimated economic cost in the billions of dollars. </p>
+<h3>Integer Overflow</h3>
+<p>When an application takes two numbers of fixed word size and perform an operation with them, the result may not fit within the same word size. For example, if the two 8-bit numbers 192 and 208 are added together and stored into another 8-bit byte, the result will not fit into an 8-bit result:
+
+1100 0000
+
++ 1101 0000
+
+= 0001 1001 0000
+
+Although such an operation will usually cause some type of exception, your application must be coded to check for such an exception and take proper action. Otherwise, your application would report that 192 + 208 equals 144. </p>
+<hr>
+<b>Resources</b><br>
+[Buffer Overflows](https://www.owasp.org/index.php/Buffer Overflows)<br>
+[Heap Overflow](https://www.win.tue.nl/~aeb/linux/hh/hh-11.html)<br>
+[Stack Overflow](https://cwe.mitre.org/data/definitions/121.html)<br>
+[Format String](https://www.owasp.org/index.php/Format_string_attack)<br>
 
