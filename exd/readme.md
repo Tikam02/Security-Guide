@@ -62,7 +62,9 @@ int main()
 <p>Heap is a region of process’s memory which is used to store dynamic variables. These variables are allocated using malloc() and calloc() functions and resize using realloc() function, which are inbuilt functions of C. These variables can be accessed globally and once we allocate memory on heap it is our responsibility to free that memory space after use. There are two situations which can result in heap overflow:
 
 <li>[1] If we continuously allocate memory and we do not free that memory space after use it may result in memory leakage – memory is still being used but not available for other processes.</li>
-```
+</p>
+
+```c
 // C program to demonstrate heap overflow 
 // by continuously allocating memory 
     #include<stdio.h>
@@ -76,11 +78,11 @@ int main()
 } 
 ```
 
-<br>
-```
-[2] If we dynamically allocate large number of variables.
+
+<p>[2] If we dynamically allocate large number of variables.
 // C program to demonstrate heap overflow 
-// by allocating large memory 
+// by allocating large memory </p>
+```c
 include<stdio.h> 
   
 int main() 
