@@ -1,7 +1,92 @@
 <h1>Exploit Development</h1>
 <hr>
-<h2>Types of Exploit Development</h2>
+<h2>Types of Buffer Overflows</h2>
 <li>Stack Buffer Overflow</li>
-<li>Heap Buffer Overflow</li>
+<li>Heap Overflow</li>
 <li>Format String</li>
+<li>Unicode Overflow</li>
+<li>Integer Overflow</li>
 <hr>
+<h3>Stack Buffer Overflow</h3>
+<p>Stack is a special region of our process’s memory which is used to store local variables used inside the function, parameters passed through a function and their return addresses. Whenever a new local variable is declared it is pushed onto the stack. All the variables associated with a function are deleted and memory they use is freed up, after the function finishes running. The user does not have any need to free up stack space manually. Stack is Last-In-First-Out data structure.<p><br>
+<p>In our computer’s memory, stack size is limited. If a program uses more memory space than the stack size then stack overflow will occur and can result in a program crash. There are two cases in which stack overflow can occur:</p>
+
+<p>[1] If we declare large number of local variables or declare an array or matrix or any higher dimensional array of large size can result in overflow of stack. </p>
+```
+// C program to demonstrate stack overflow 
+// by allocating a large local memory 
+#include<stdio.h> 
+  
+int main() { 
+  
+   // Creating a matrix of size 10^5 x 10^5 
+   // which may result in stack overflow. 
+   int mat[100000][100000]; 
+} 
+
+```
+<p>[2] f function recursively call itself infinite times then the stack is unable to store large number of local variables used by every function call and will result in overflow of stack. 
+</p>
+```
+
+// C program to demonstrate stack overflow 
+// by creating a non-terminating recursive 
+// function. 
+#include<stdio.h> 
+  
+void fun(int x) 
+{ 
+    if (x == 1) 
+       return; 
+    x = 6; 
+    fun(x); 
+} 
+  
+int main() 
+{ 
+   int x = 5; 
+   fun(x); 
+} 
+
+```
+<p>Stack overflows are the best understood and the most common form of buffer overflows. The basics of a stack overflow is simple:
+
+<li>There are two buffers, a source buffer containing arbitrary input (presumably from the attacker), and a destination buffer that is too small for the attack input. The second buffer resides on the stack and somewhat adjacent to the function return address on the stack.</li>
+
+   <li> The faulty code does not check that the source buffer is too large to fit in the destination buffer. It copies the attack input to the destination buffer, overwriting additional information on the stack (such as the function return address).</li>
+
+  <li>  When the function returns, the CPU unwinds the stack frame and pops the (now modified) return address from the stack.</li>
+
+  <li>  Control does not return to the function as it should. Instead, arbitrary code (chosen by the attacker when crafting the initial input) is executed.</li> <p><br>
+<h3>Heap Overflow</h3>
+<p>Heap is a region of process’s memory which is used to store dynamic variables. These variables are allocated using malloc() and calloc() functions and resize using realloc() function, which are inbuilt functions of C. These variables can be accessed globally and once we allocate memory on heap it is our responsibility to free that memory space after use. There are two situations which can result in heap overflow:
+
+<li>[1] If we continuously allocate memory and we do not free that memory space after use it may result in memory leakage – memory is still being used but not available for other processes.</li>
+```
+// C program to demonstrate heap overflow 
+// by continuously allocating memory 
+    #include<stdio.h>
+    int main() 
+{ 
+    for (int i=0; i<10000000; i++) 
+    { 
+       // Allocating memory without freeing it 
+       int *ptr = (int *)malloc(sizeof(int)); 
+    } 
+} 
+```
+
+<br>
+```
+[2] If we dynamically allocate large number of variables.
+// C program to demonstrate heap overflow 
+// by allocating large memory 
+include<stdio.h> 
+  
+int main() 
+{ 
+    int *ptr = (int *)malloc(sizeof(int)*10000000)); 
+} 
+```
+</p>
+
