@@ -12,3 +12,5 @@
 <li>hexdump</li>
 <li>gdb</li>
 <li>python -c</li>
+<li>objdump</li>
+

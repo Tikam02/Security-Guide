@@ -3,3 +3,7 @@ gdb -q ./narnia
 (gdb)pattern_create 150
 (gdb)pattern_offset 
 
+
+
+-------------------------Objdump---------------
+objdump -d -M intel /narnia/narnia3
