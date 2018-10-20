@@ -21,5 +21,9 @@ $socket = IO: :Socket: :INET->new(
 	Proto=>"tcp"
 	PeerAddr=>$ipAddr,
 	PeerPort=>) or die "Cannot Connect to $ipAddr $ipPort";
-	
+
+$socket->recv($returnedData,1024);
+print $returnedData;
+
+$socket->send($command);
 
