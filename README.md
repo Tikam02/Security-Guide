@@ -9,4 +9,12 @@
 
 [ctf-tools](https://github.com/zardus/ctf-tools)
 
-[Pentesting -Cheatcheet](https://github.com/coreb1t/awesome-pentest-cheat-sheets)
+[Pentesting -Cheatsheet](https://github.com/coreb1t/awesome-pentest-cheat-sheets)
+
+[Awesome-Pentest](https://github.com/enaqx/awesome-pentest)
+
+[Awesome-Fuzzing-Tools](https://github.com/secfigo/Awesome-Fuzzing)
+
+[Awesome-Forensics](https://github.com/cugu/awesome-forensics)
+
+[Awesome-Forensic-Tools](https://github.com/ivbeg/awesome-forensicstools)
