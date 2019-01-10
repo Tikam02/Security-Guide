@@ -118,6 +118,10 @@ Nmap done: 1 IP address (1 host up) scanned in 18.22 seconds
 
 
 
+<<<<<<< HEAD
+=======
+```
+>>>>>>> 7035c85a50da46c5a18af5f0bef9ef1d595732f8
 root@hal:~# ssh ted@192.168.57.3
 The authenticity of host '192.168.57.3 (192.168.57.3)' can't be established.
 ECDSA key fingerprint is SHA256:+i9tqbQwK978CB+XRr02pS6QPd3evJ+lueOkK1LTtU0.
@@ -172,7 +176,5 @@ _________
 
 
 Congratulations ! there is your flag : 0wnedlab{p4ssi0n_c0me_with_pract1ce}
-
-
-
 # 
+```
