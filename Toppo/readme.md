@@ -1,3 +1,9 @@
+
+### Use Nikto to scan the website - nikto -h [IP]
+
+
+
+
 ```
 root@hal:~# nikto -h 192.168.57.3
 - Nikto v2.1.6
@@ -31,6 +37,15 @@ root@hal:~# nikto -h 192.168.57.3
 
 ```
 *****
+
+### Use nmap scan in order to view the open ports on this machine.
+> Parameters 
+
+     -v - verbose output
+    -sS - TCP-SYN scan
+    -A - OS detection, version detection and traceroute
+    -T4 - aggresive scan
+    -p- - scan all 65535 ports
 
 ```
 root@hal:~# nmap -v -sS -A -T4 -p- 192.168.57.3
