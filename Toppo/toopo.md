@@ -1,5 +1,5 @@
 
->
+```
 root@hal:~# ssh ted@192.168.57.3
 The authenticity of host '192.168.57.3 (192.168.57.3)' can't be established.
 ECDSA key fingerprint is SHA256:+i9tqbQwK978CB+XRr02pS6QPd3evJ+lueOkK1LTtU0.
@@ -54,7 +54,5 @@ _________
 
 
 Congratulations ! there is your flag : 0wnedlab{p4ssi0n_c0me_with_pract1ce}
-
-
-
 # 
+```
