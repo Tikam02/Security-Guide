@@ -1,0 +1,44 @@
+# Nmap 7.70 scan initiated Sat Jan 12 22:11:53 2019 as: nmap -n -v -Pn -p- -A --reason -oN nmap.txt 192.168.56.101
+Nmap scan report for 192.168.56.101
+Host is up, received arp-response (0.00043s latency).
+Not shown: 65530 closed ports
+Reason: 65530 resets
+PORT      STATE    SERVICE REASON         VERSION
+53/tcp    filtered domain  no-response
+80/tcp    open     http    syn-ack ttl 64 Apache httpd 2.4.10 ((Debian))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.10 (Debian)
+|_http-title: Vibranium Market
+111/tcp   open     rpcbind syn-ack ttl 64 2-4 (RPC #100000)
+| rpcinfo: 
+|   program version   port/proto  service
+|   100000  2,3,4        111/tcp  rpcbind
+|   100000  2,3,4        111/udp  rpcbind
+|   100024  1          50430/udp  status
+|_  100024  1          58528/tcp  status
+3333/tcp  open     ssh     syn-ack ttl 64 OpenSSH 6.7p1 Debian 5+deb8u4 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 1c:98:47:56:fc:b8:14:08:8f:93:ca:36:44:7f:ea:7a (DSA)
+|   2048 f1:d5:04:78:d3:3a:9b:dc:13:df:0f:5f:7f:fb:f4:26 (RSA)
+|   256 d8:34:41:5d:9b:fe:51:bc:c6:4e:02:14:5e:e1:08:c5 (ECDSA)
+|_  256 0e:f5:8d:29:3c:73:57:c7:38:08:6d:50:84:b6:6c:27 (ED25519)
+58528/tcp open     status  syn-ack ttl 64 1 (RPC #100024)
+MAC Address: 08:00:27:3C:1E:DB (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Uptime guess: 0.000 days (since Sat Jan 12 22:11:38 2019)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=256 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.43 ms 192.168.56.101
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Jan 12 22:12:10 2019 -- 1 IP address (1 host up) scanned in 17.30 seconds
