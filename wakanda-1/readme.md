@@ -2,9 +2,9 @@
 
 
 ## [step 1] Finding Ip Address
-> 
-  nmap [nmap -sT 192.168.0.0/24]
-  netdiscover -r 192.168.0.0/24
+
+> nmap [nmap -sT 192.168.0.0/24] 
+  netdiscover -r 192.168.0.0/24 
   arp-scan -l
 
 ## [step 2] Finding Port 
