@@ -330,6 +330,71 @@ ls -alh /var/log/samba/
 Note: auth.log, boot, btmp, daemon.log, debug, dmesg, kern.log, mail.info, mail.log, mail.warn, messages, syslog, udev, wtmp
 ```
 
+#### If commands are limited, you break out of the "jail" shell?
+```
+python -c 'import pty;pty.spawn("/bin/bash")'
+echo os.system('/bin/bash')
+/bin/sh -i
+```
+
+##### How are file-systems mounted?
+```
+mount
+df -h
+```
+
+#### Are there any unmounted file-systems?
+```
+cat /etc/fstab
+```
+#### What "Advanced Linux File Permissions" are used? Sticky bits, SUID & GUID
+```
+find / -perm -1000 -type d 2>/dev/null   # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here.
+find / -perm -g=s -type f 2>/dev/null    # SGID (chmod 2000) - run as the group, not the user who started it.
+find / -perm -u=s -type f 2>/dev/null    # SUID (chmod 4000) - run as the owner, not the user who started it.
+
+find / -perm -g=s -o -perm -u=s -type f 2>/dev/null    # SGID or SUID
+for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2>/dev/null; done    # Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search)
+
+# find starting at root (/), SGID or SUID, not Symbolic links, only 3 folders deep, list with more detail and hide any errors (e.g. permission denied)
+find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null
+```
+#### Where can written to and executed from? A few 'common' places: /tmp, /var/tmp, /dev/shm
+```
+find / -writable -type d 2>/dev/null      # world-writeable folders
+find / -perm -222 -type d 2>/dev/null     # world-writeable folders
+find / -perm -o w -type d 2>/dev/null     # world-writeable folders
+
+find / -perm -o x -type d 2>/dev/null     # world-executable folders
+
+find / \( -perm -o w -perm -o x \) -type d 2>/dev/null   # world-writeable & executable folders
+
+```
+#### Any "problem" files? Word-writeable, "nobody" files
+```
+find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print   # world-writeable files
+find /dir -xdev \( -nouser -o -nogroup \) -print   # Noowner files
+
+```
+****
+
+## Preparation & Finding Exploit Code
+##### What development tools/languages are installed/supported?
+```
+find / -name perl*
+find / -name python*
+find / -name gcc*
+find / -name cc
+```
+#### How can files be uploaded?
+```
+find / -name wget
+find / -name nc*
+find / -name netcat*
+find / -name tftp*
+find / -name ftp
+```
+
 
 
 
