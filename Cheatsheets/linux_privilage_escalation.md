@@ -394,6 +394,37 @@ find / -name netcat*
 find / -name tftp*
 find / -name ftp
 ```
+****
+### Finding exploit code
+
+http://www.exploit-db.com
+
+http://1337day.com
+
+http://www.securiteam.com
+
+http://www.securityfocus.com
+
+http://www.exploitsearch.net
+
+http://metasploit.com/modules/
+
+http://securityreason.com
+
+http://seclists.org/fulldisclosure/
+
+http://www.google.com
+
+**** 
+### Finding more information regarding the exploit
+
+http://www.cvedetails.com
+
+http://packetstormsecurity.org/files/cve/[CVE]
+
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=[CVE]
+
+http://www.vulnview.com/cve-details.php?cvename=[CVE]
 
 
 
