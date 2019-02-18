@@ -7,6 +7,7 @@
 ### Vulnhub Virtual Machine - CTF - Writeups
 ******
 1. Toppo:1
+2. Wakanda:1
 ******
 ### Resources
 [Awesome-ctf](https://apsdehal.in/awesome-ctf/)
