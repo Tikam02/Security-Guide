@@ -22,4 +22,8 @@
 
 [Awesome-Forensics](https://github.com/cugu/awesome-forensics)
 
-[Awesome-Forensic-Tools](https://github.com/ivbeg/awesome-forensicstools)
+[A9wesome-Forensic-Tools](https://github.com/ivbeg/awesome-forensicstools)
+
+[ctf-tools_2](https://github.com/MrMugiwara/CTF-Tools)
+
+[P4wnP1 is a highly customizable USB attack platform, based on a low cost Raspberry Pi Zero or Raspberry Pi Zero W (required for HID backdoor).](https://github.com/mame82/P4wnP1)
