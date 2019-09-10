@@ -1,0 +1,49 @@
+<pre><font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB</b></font># ls
+<font color="#EF2929"><b>0ld_is_g0ld.zip</b></font>  savedstate.sav
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB</b></font># unzip 0ld_is_g0ld.zip
+Archive:  0ld_is_g0ld.zip
+[0ld_is_g0ld.zip] 0ld is g0ld.pdf password: 
+  inflating: 0ld is g0ld.pdf         
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB</b></font># ls
+&apos;0ld is g0ld.pdf&apos;   <font color="#EF2929"><b>0ld_is_g0ld.zip</b></font>   savedstate.sav
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB</b></font># rename old is g0ld.pdf to misc.pdf^C
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB</b></font># ls
+<font color="#EF2929"><b>0ld_is_g0ld.zip</b></font>  misc.pdf  savedstate.sav
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB</b></font># pdfcrack
+Usage: pdfcrack -f filename [OPTIONS]
+OPTIONS:
+-b, --bench		perform benchmark and exit
+-c, --charset=STRING	Use the characters in STRING as charset
+-w, --wordlist=FILE	Use FILE as source of passwords to try
+-n, --minpw=INTEGER	Skip trying passwords shorter than this
+-m, --maxpw=INTEGER	Stop when reaching this passwordlength
+-l, --loadState=FILE	Continue from the state saved in FILENAME
+-o, --owner		Work with the ownerpassword
+-u, --user		Work with the userpassword (default)
+-p, --password=STRING	Give userpassword to speed up breaking
+			ownerpassword (implies -o)
+-q, --quiet		Run quietly
+-s, --permutate		Try permutating the passwords (currently only
+			supports switching first character to uppercase)
+-v, --version		Print version and exit
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB</b></font># pdfcrack misc.pdf -w &apos;/root/Hunt/SecLists/Passwords/Leaked-Databases/rockyou.txt&apos;
+PDF version 1.6
+Security Handler: Standard
+V: 2
+R: 3
+P: -1060
+Length: 128
+Encrypted Metadata: True
+FileID: 5c8f37d2a45eb64e9dbbf71ca3e86861
+U: 9cba5cfb1c536f1384bba7458aae3f8100000000000000000000000000000000
+O: 702cc7ced92b595274b7918dcb6dc74bedef6ef851b4b4b5b8c88732ba4dac0c
+Average Speed: 45308.4 w/s. Current Word: &apos;joshijoshi&apos;
+Average Speed: 45075.8 w/s. Current Word: &apos;feb141997&apos;
+Average Speed: 44563.2 w/s. Current Word: &apos;wwecw13&apos;
+Average Speed: 44447.8 w/s. Current Word: &apos;spits22&apos;
+Average Speed: 44794.2 w/s. Current Word: &apos;purochuculun&apos;
+Average Speed: 45038.9 w/s. Current Word: &apos;moonwijk&apos;
+Average Speed: 45333.9 w/s. Current Word: &apos;lee4206969&apos;
+found user-password: &apos;jumanji69&apos;
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB</b></font># 
+</pre>

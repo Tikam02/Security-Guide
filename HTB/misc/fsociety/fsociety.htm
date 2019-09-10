@@ -1,0 +1,60 @@
+<pre><font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># ls
+<font color="#EF2929"><b>fs0ciety.zip</b></font>  rockyou.txt
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># unzip fs0ciety.zip
+Archive:  fs0ciety.zip
+[fs0ciety.zip] fsociety.zip password: 
+  inflating: fsociety.zip            
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># ls
+<font color="#EF2929"><b>fs0ciety.zip</b></font>  <font color="#EF2929"><b>fsociety.zip</b></font>  rockyou.txt
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># unzip fsociety.zip
+Archive:  fsociety.zip
+[fsociety.zip] sshcreds_datacenter.txt password: 
+password incorrect--reenter: 
+password incorrect--reenter: 
+   skipping: sshcreds_datacenter.txt  incorrect password
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># 
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># ls
+<font color="#EF2929"><b>fs0ciety.zip</b></font>  <font color="#EF2929"><b>fsociety.zip</b></font>  rockyou.txt
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># USE frackzip to crack zip files
+bash: USE: command not found
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># 
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># fcrackzip --help
+
+fcrackzip version 1.0, a fast/free zip password cracker
+written by Marc Lehmann &lt;pcg@goof.com&gt; You can find more info on
+http://www.goof.com/pcg/marc/
+
+USAGE: fcrackzip
+          [-b|--brute-force]            use brute force algorithm
+          [-D|--dictionary]             use a dictionary
+          [-B|--benchmark]              execute a small benchmark
+          [-c|--charset characterset]   use characters from charset
+          [-h|--help]                   show this message
+          [--version]                   show the version of this program
+          [-V|--validate]               sanity-check the algortihm
+          [-v|--verbose]                be more verbose
+          [-p|--init-password string]   use string as initial password/file
+          [-l|--length min-max]         check password with length min to max
+          [-u|--use-unzip]              use unzip to weed out wrong passwords
+          [-m|--method num]             use method number &quot;num&quot; (see below)
+          [-2|--modulo r/m]             only calculcate 1/m of the password
+          file...                    the zipfiles to crack
+
+methods compiled in (* = default):
+
+ 0: cpmask
+ 1: zip1
+*2: zip2, USE_MULT_TAB
+
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># We will use Parameters | -u for unzip | -D for dictionary | -p password string|
+&gt; ^C
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># fcrackzip -u -D -p ./rockyou.txt fsociety.zip
+
+
+PASSWORD FOUND!!!!: pw == justdoit
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># unzip fsociety.zip
+Archive:  fsociety.zip
+[fsociety.zip] sshcreds_datacenter.txt password: 
+  inflating: sshcreds_datacenter.txt  
+<font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~/Hunt/HTB/fsociety</b></font># 
+</pre>

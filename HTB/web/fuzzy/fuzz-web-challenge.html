@@ -1,0 +1,123 @@
+
+<h1> Finding Directories Using gobuster</h1>
+
+
+
+<pre><font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~</b></font># Command Explanation
+</pre>
+
+<pre>&gt;&gt; -w (wordlist)</pre>
+
+<pre>&gt;&gt; -t (50 threads)
+</pre>
+
+<pre>-x (Look for these extensions in the bruteforce)
+</pre>
+
+
+
+<pre><font color="#E50000"><b>root@hal</b></font>:<font color="#0000FF"><b>~</b></font># gobuster dir -u http://docker.hackthebox.eu:33605/ -w /root/Hunt/payloads/payloads/owasp/dirbuster/directory-list-2.3-medium.txt -t 50 -x php,txt,html,htm
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://docker.hackthebox.eu:33605/
+[+] Threads:        50
+[+] Wordlist:       /root/Hunt/payloads/payloads/owasp/dirbuster/directory-list-2.3-medium.txt
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     php,txt,html,htm
+[+] Timeout:        10s
+===============================================================
+2019/09/08 16:30:53 Starting gobuster
+===============================================================
+/index.html (Status: 200)
+/css (Status: 301)
+/js (Status: 301)
+/api (Status: 301)
+Progress: 4224 / 220561 (1.92%)^C
+[!] Keyboard interrupt detected, terminating.
+===============================================================
+2019/09/08 16:32:05 Finished
+===============================================================
+<font color="#E50000"><b>root@hal</b></font>:<font color="#0000FF"><b>~</b></font># gobuster dir -u http://docker.hackthebox.eu:33605/api -w /root/Hunt/payloads/payloads/owasp/dirbuster/directory-list-2.3-medium.txt -t 50 -x php,txt,html,htm
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://docker.hackthebox.eu:33605/api
+[+] Threads:        50
+[+] Wordlist:       /root/Hunt/payloads/payloads/owasp/dirbuster/directory-list-2.3-medium.txt
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     php,txt,html,htm
+[+] Timeout:        10s
+===============================================================
+2019/09/08 16:32:14 Starting gobuster
+===============================================================
+Error: error on running gobuster: unable to connect to http://docker.hackthebox.eu:33605/api/: Get http://docker.hackthebox.eu:33605/api/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+<font color="#E50000"><b>root@hal</b></font>:<font color="#0000FF"><b>~</b></font># gobuster dir -u http://docker.hackthebox.eu:33605/api -w /root/Hunt/payloads/payloads/owasp/dirbuster/directory-list-2.3-medium.txt -t 50 -x php,txt,html,htm
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://docker.hackthebox.eu:33605/api
+[+] Threads:        50
+[+] Wordlist:       /root/Hunt/payloads/payloads/owasp/dirbuster/directory-list-2.3-medium.txt
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     php,txt,html,htm
+[+] Timeout:        10s
+===============================================================
+2019/09/08 16:32:41 Starting gobuster
+===============================================================
+/index.html (Status: 200)
+/action.php (Status: 200)
+Progress: 1531 / 220561 (0.69%)^C
+[!] Keyboard interrupt detected, terminating.
+===============================================================
+2019/09/08 16:33:11 Finished
+===============================================================
+<font color="#E50000"><b>root@hal</b></font>:<font color="#0000FF"><b>~</b></font># 
+</pre>
+
+<h2> Finding The parameter Using Wfuzz </h2>
+<h3>Command Explanation</h3>
+
+<pre>&gt;&gt; –hh (filter the length of characters in source code) </pre>
+
+<pre>&gt;&gt; -c (Output with colors) </pre>
+
+<pre>&gt;&gt; -w (Wordlist) </pre>
+
+<pre>&gt;&gt; FUZZ (FUZZ keyword will be replaced by the word from the wordlist) </pre>
+
+<pre><font color="#EF2929"><b>root@hal</b></font>:<font color="#729FCF"><b>~</b></font># wfuzz --hh=24 -c -w /usr/share/dirb/wordlists/big.txt http://docker.hackthebox.eu:33605/api/action.php?reset=FUZZ
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz&apos;s documentation for more information.
+
+********************************************************
+* Wfuzz 2.3.4 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://docker.hackthebox.eu:33605/api/action.php?reset=FUZZ
+Total requests: 20469
+
+==================================================================
+ID   Response   Lines      Word         Chars          Payload    
+==================================================================
+
+
+000308:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;1a2b3c&quot;
+000309:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;1c&quot;
+000310:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;1p2o3i&quot;
+000312:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;1qaz2wsx&quot;
+000311:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;1q2w3e&quot;
+000313:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;1qw23e&quot;
+000314:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;1sanjose&quot;
+000315:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;1x1&quot;
+000319:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;200&quot;
+000316:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;2&quot;
+000317:  C=<font color="#4E9A06">200</font>      0 L	       5 W	     27 Ch	  &quot;2-easy-ways&quot;
+000318:  C=<font color="#4E9A06">200</font>      0 L	      10 W	     74 Ch	  &quot;20&quot;
+</pre>
