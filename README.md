@@ -7,7 +7,8 @@
   - [Misc]()
   - [Pwn]()
   - [stego]()
-- [Machines]()
+  - [Forensics]()
+
 
 ### Capture The Flag - Writeups
 ******
@@ -16,8 +17,15 @@
 ******
 ### Vulnhub Virtual Machine - CTF - Writeups
 ******
-1. Toppo:1
-2. Wakanda:1
+1. [Toppo:1]()
+2. [Wakanda:1]()
+3. [Raven:1]()
+4. [Raven:2]()
+5. [Bulldog:1]()
+6. [Bulldog:2]()
+7. [W1R3S: 1.0.1(OSCP)]()
+8. [SolidState: 1(HTB)]()
+9. [Node: 1(HTB)]()
 ******
 ### Resources
 [Awesome-ctf](https://apsdehal.in/awesome-ctf/)
