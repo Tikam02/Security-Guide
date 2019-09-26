@@ -28,7 +28,11 @@
 
 [List of Tools](https://acknak.fr/en/articles/oscp-tools/#requirements_pwn)
 
+[Linux Privilege Escalation Scripts](https://netsec.ws/?p=309)
+
 
 ## Articles which you will guide to make Right Strategy
 
 [The Journey to Try Harder: TJnull’s Preparation Guide for PWK/OSCP](https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html)
+
+[Passing OSCP](https://scund00r.com/all/oscp/2018/02/25/passing-oscp.html)
