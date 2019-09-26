@@ -23,3 +23,12 @@
 ## OSCP Tools specially made for:
 
 [Reconnoitre](https://github.com/codingo/Reconnoitre)
+
+[OSCP Aproved tools](https://medium.com/@falconspy/oscp-approved-tools-b2b4e889e707)
+
+[List of Tools](https://acknak.fr/en/articles/oscp-tools/#requirements_pwn)
+
+
+## Articles which you will guide to make Right Strategy
+
+[The Journey to Try Harder: TJnull’s Preparation Guide for PWK/OSCP](https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html)
