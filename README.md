@@ -1,5 +1,8 @@
-# CTF
+# Security Guide 
 ******
+
+## Directories
+
 ### Hackthebox Resources
 - [Challenges]()
   - [Crypto]()
@@ -10,11 +13,7 @@
   - [Forensics]()
 
 
-### Capture The Flag - Writeups
-******
-1. Leviathan
-2. Narnia
-******
+
 ### Vulnhub Virtual Machine - CTF - Writeups
 ******
 1. [Toppo:1]()
