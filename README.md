@@ -1,5 +1,5 @@
-# Security Guide 
-******
+
+![Security Guide](https://github.com/Tikam02/Security-Guide/blob/master/img/cover.png)
 
 ## Directories
 
