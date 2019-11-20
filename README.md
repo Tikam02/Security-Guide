@@ -1,7 +1,6 @@
 
 ![Security Guide](https://github.com/Tikam02/Security-Guide/blob/master/img/cover.png)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/Tikam02/DevOps_Cheatsheet?style=for-the-badge)   ![Secops](https://img.shields.io/badge/Security-Guide-blue?style=for-the-badge) ![Bounty](https://img.shields.io/badge/Penetration-Testing-Red?style=for-the-badge) 
 
 
 
@@ -28,4 +27,11 @@
 </center>
 
 
+
+********************************************
+<a href="https://www.buymeacoffee.com/95jwDkC" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+*********************************************
+## License
+
+This project is licensed under the MIT License - Copyright (c) 2019 Tikam Alma
 
