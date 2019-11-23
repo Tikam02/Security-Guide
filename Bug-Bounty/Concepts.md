@@ -1,0 +1,1 @@
+# Bug Bounty Concepts - How to get started
