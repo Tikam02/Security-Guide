@@ -16,7 +16,7 @@
   <td align="center" ><a href="./OSCP"><img src="img/icons/homework.png"  width="75px;" height="75px;" alt="OSCP"/><br/><b>Offensive Security Certified Professional</b></a><br /><sub><a href="./OSCP/readme.md"> </a></sub><br><sub><a href="./OSCP/praparation.md">Preparation</a></sub><br><sub><a href="./OSCP/practice.md">Practice</a></sub></td>
     
     
-     <td align="center"><a href="./Docker"><img src="img/icons/exploit-dev.png" width="75px;" height="75px;" alt="OSCP"/><br/><b>Exploit Development</b></a><br /><sub><a href="./Docker/docker-concepts.md"> </a></sub><br><sub><a href="./Docker/docker-notes.md">Notes</a></sub></td>
+
 
   </tr>
 
