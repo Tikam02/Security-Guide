@@ -1,18 +1,4 @@
-# Plans
-
-
-- The Exam
-    - Start early in the morning because my brain is at its peak the first few hours (I could think clearly). 
-    -  First clear the passing marks by doing 4 boxes.
-    - Then move on to Buffer Overflow.
-
-
-- What the Exam Machines are like
-    - 1x10 pointer: this is easy boot to root machine. There will be a lot of ports open similar to Metasploitable but look for the unique service in a unique port. 
-    
-    - 2x20 pointer: These will be similar to HTB machines such as October, Popcorn, Shocker, Beep.
-
-    - 2x25 pointer: One is Buffer Overflow and the other is a slightly harder, rabbit holed filled machine. Maybe Giddy, Jeeves.
+# Practice 
 
 
 - Vulnhub Virtual-machines 
@@ -55,5 +41,30 @@
     
 (credits for @abatchy)
 
-Link to download VMs: http://vulnhub.com
+***********************
 
+## Buffer Overflow Practice 
+
+- [Bufferoverflow practice by justinsteven](https://github.com/justinsteven/dostackbufferoverflowgood)
+- [BFO by vortex.com](https://www.vortex.id.au/2017/05/pwkoscp-stack-buffer-overflow-practice/)
+- [BFO by Corelan.com](https://www.corelan.be/index.php/2009/07/19/exploit-writing-tutorial-part-1-stack-based-overflows/)
+- [BFO by tenouk.com](https://www.tenouk.com/Bufferoverflowc/Bufferoverflow1.html)
+- [buffer_overflow_iniciantes by m0nad](https://raw.githubusercontent.com/m0nad/Papers/master/buffer_overflow_iniciantes.txt)
+
+### Buffer Overflow VMs Practice
+
+- 1 [Kioptrix: 2014]( https://www.vulnhub.com/entry/kioptrix-2014-5,62/)
+- 2 [FristiLeaks: 1.3]( https://www.vulnhub.com/entry/fristileaks-13,133/)
+- 3 [Stapler: 1](https://www.vulnhub.com/entry/stapler-1,150/)
+- 4 [VulnOS: 2]( https://www.vulnhub.com/entry/vulnos-2,147/)
+- 5 [SickOs: 1.2]( https://www.vulnhub.com/entry/sickos-12,144/)
+- 6 [Brainpan: 1]( ttps://www.vulnhub.com/entry/brainpan-1,51/)
+
+## Resources 
+
+- [OSCP-Survival Guide by @wwong99](https://github.com/wwong99/pentest-notes/blob/master/oscp_resources/OSCP-Survival-Guide.md)
+- [OSCP-Prep by RustyShackleford221](https://github.com/RustyShackleford221/OSCP-Prep)
+- [Awesome OSCP by 0x4D31](https://github.com/0x4D31/awesome-oscp)
+- [Pentest notes by wwong99](https://github.com/wwong99/pentest-notes)
+- [Materials for OSCP by gajos112](https://github.com/gajos112/OSCP)
+- [OSCP Schedule yourself by skahwah](https://github.com/skahwah/skahwah.github.io/blob/master/_posts/2015-04-08-pwk-course-and-oscp-exam-review.md)
