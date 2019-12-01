@@ -60,11 +60,44 @@
 - 5 [SickOs: 1.2]( https://www.vulnhub.com/entry/sickos-12,144/)
 - 6 [Brainpan: 1]( ttps://www.vulnhub.com/entry/brainpan-1,51/)
 
+
+
+## OSCP Tools specially made for:
+
+- [Reconnoitre by @codingo](https://github.com/codingo/Reconnoitre)
+
+- [OSCP Aproved tools @falconspy](https://medium.com/@falconspy/oscp-approved-tools-b2b4e889e707)
+
+- [List of Tools](https://acknak.fr/en/articles/oscp-tools/#requirements_pwn)
+
+- [Linux Privilege Escalation Scripts](https://netsec.ws/?p=309)
+
+
 ## Resources 
 
 - [OSCP-Survival Guide by @wwong99](https://github.com/wwong99/pentest-notes/blob/master/oscp_resources/OSCP-Survival-Guide.md)
-- [OSCP-Prep by RustyShackleford221](https://github.com/RustyShackleford221/OSCP-Prep)
-- [Awesome OSCP by 0x4D31](https://github.com/0x4D31/awesome-oscp)
-- [Pentest notes by wwong99](https://github.com/wwong99/pentest-notes)
-- [Materials for OSCP by gajos112](https://github.com/gajos112/OSCP)
-- [OSCP Schedule yourself by skahwah](https://github.com/skahwah/skahwah.github.io/blob/master/_posts/2015-04-08-pwk-course-and-oscp-exam-review.md)
+
+- [OSCP-Prep by @RustyShackleford221](https://github.com/RustyShackleford221/OSCP-Prep)
+
+- [Awesome OSCP by @0x4D31](https://github.com/0x4D31/awesome-oscp)
+
+- [Pentest notes by @wwong99](https://github.com/wwong99/pentest-notes)
+
+- [Materials for OSCP by @gajos112](https://github.com/gajos112/OSCP)
+
+- [OSCP Schedule yourself by @skahwah](https://github.com/skahwah/skahwah.github.io/blob/master/_posts/2015-04-08-pwk-course-and-oscp-exam-review.md)
+
+- [OSCP-60-Days by @anandkumar11u](https://github.com/anandkumar11u/OSCP-60days)
+
+- [OSCP-Repo by @rewardone](https://github.com/rewardone/OSCPRepo)
+
+- [OSCP-Cheatsheet by @OlivierLaflamme](https://github.com/OlivierLaflamme/Cheatsheet-God)
+
+- [OSCP-Archive by @CyDefUnicorn](https://github.com/CyDefUnicorn/OSCP-Archives)
+
+- [OSCP-Report Templates by @whoisflynn](https://github.com/whoisflynn/OSCP-Exam-Report-Template)
+
+- [OSCP Markdown template Report by @noraj](https://github.com/noraj/OSCP-Exam-Report-Template-Markdown)
+
+- [Red Team Experiment](https://ired.team/)
+

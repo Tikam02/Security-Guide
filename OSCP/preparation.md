@@ -12,3 +12,10 @@
     - 2x20 pointer: These will be similar to HTB machines such as October, Popcorn, Shocker, Beep.
 
     - 2x25 pointer: One is Buffer Overflow and the other is a slightly harder, rabbit holed filled machine. Maybe Giddy, Jeeves.
+
+
+## Articles which you will guide to make Right Strategy
+
+- [The Journey to Try Harder: TJnull’s Preparation Guide for PWK/OSCP](https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html)
+
+- [Passing OSCP](https://scund00r.com/all/oscp/2018/02/25/passing-oscp.html)
