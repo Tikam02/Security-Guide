@@ -1,6 +1,27 @@
 # Tools
 
 ### 1. Web-Exploit Tools
+
+[BurpSuite](https://github.com/apsdehal/awesome-ctf/blob/master) — A graphical tool to testing website security.
+
+[Commix](https://github.com/commixproject/commix) — Automated All-in-One OS Command Injection and Exploitation Tool.
+    
+[Hackbar](https://addons.mozilla.org/en-US/firefox/addon/hackbar/) — Firefox addon for easy web exploitation
+
+[OWASP ZAP](https://www.owasp.org/index.php/Projects/OWASP_Zed_Attack_Proxy_Project) — Intercepting proxy to replay, debug, and fuzz HTTP requests and responses
+
+[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) — Add on for chrome for debugging network requests
+
+[Raccoon](https://github.com/evyatarmeged/Raccoon) — A high performance offensive security tool for reconnaissance and vulnerability scanning
+
+[SQLMap](https://github.com/sqlmapproject/sqlmap) — Automatic SQL injection and database takeover tool.
+
+[W3af](https://github.com/andresriancho/w3af) — Web Application Attack and Audit Framework.
+
+[XSSer](http://xsser.sourceforge.net/) — Automated XSS testor
+
+
+
 ### 2. Forensics
 
 [Aircrack-Ng](http://www.aircrack-ng.org/) — Crack 802.11 WEP and WPA-PSK keys
