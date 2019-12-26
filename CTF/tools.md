@@ -38,6 +38,10 @@
 [UsbForensics](http://www.forensicswiki.org/wiki/USB_History_Viewing) — Contains many tools for usb forensics
 
 [Volatility](https://github.com/volatilityfoundation/volatility) — To investigate memory dumps
+
+[RegistryViewer](http://www.gaijin.at/en/getitpage.php?id=regview) — Used to view windows registries
+    
+[Windows Registry Viewers](http://www.forensicswiki.org/wiki/Windows_Registry) — More registry viewers
 ### 3. Cryptography
 [FeatherDuster](https://github.com/nccgroup/featherduster) — An automated, modular cryptanalysis tool
  
@@ -51,7 +55,52 @@
 
 [XORTool](https://github.com/hellman/xortool) — A tool to analyze multi-byte xor cipher
 ### 4. Stegnography
+
+[Convert](http://www.imagemagick.org/script/convert.php) — Convert images b/w formats and apply filters
+
+[Exif](http://manpages.ubuntu.com/manpages/trusty/man1/exif.1.html) — Shows EXIF information in JPEG files
+
+[Exiftool]() — Read and write meta information in files
+
+[Exiv2](https://linux.die.net/man/1/exiftool) — Image metadata manipulation tool
+    
+[ImageMagick](http://www.imagemagick.org/script/index.php) — Tool for manipulating images
+
+[Outguess](https://www.freebsd.org/cgi/man.cgi?query=outguess+&apropos=0&sektion=0&manpath=FreeBSD+Ports+5.1-RELEASE&format=html) — Universal steganographic tool
+
+[Pngtools](http://www.stillhq.com/pngtools/) — For various analysis related to PNGs
+    
+    
+[SmartDeblur](https://github.com/Y-Vladimir/SmartDeblur) — Used to deblur and fix defocused images
+    
+[Steganabara](https://www.openhub.net/p/steganabara) — Tool for stegano analysis written in Java
+    
+[Stegbreak](https://linux.die.net/man/1/stegbreak) — Launches brute-force dictionary attacks on JPG image
+
+[StegCracker](https://github.com/Paradoxis/StegCracker) — Steganography brute-force utility to uncover hidden data inside files
+
+[stegextract](https://github.com/evyatarmeged/stegextract) — Detect hidden files and text in images
+
+[Steghide](http://steghide.sourceforge.net/http://steghide.sourceforge.net/) — Hide data in various kind of images
+
+[Stegsolve](http://www.caesum.com/handbook/Stegsolve.jar) — Apply various steganography techniques to images
+
+[Zsteg](https://github.com/zed-0xff/zsteg/) — PNG/BMP analysis
 ### 5. Reverse Engineering
 ### 6. Bufferoverflow Exploitation
 ### 7. Bruteforcers
 ### 8. Networking
+    
+[Bro](https://www.bro.org/) — An open-source network security monitor.
+ 
+[Masscan](https://github.com/robertdavidgraham/masscan) — Mass IP port scanner, TCP port scanner.
+
+[Monit](https://linoxide.com/monitoring-2/monit-linux/) — A linux tool to check a host on the network (and other non-network activities).
+    
+[Nipe](https://github.com/GouveaHeitor/nipe) — Nipe is a script to make Tor Network your default gateway.
+    
+[Nmap](https://www.wireshark.org/) — An open source utility for network discovery and security auditing.
+    
+[Wireshark](https://zmap.io/) — Analyze the network dumps.
+    
+[Zmap]() — An open-source network scanner.
