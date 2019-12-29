@@ -107,9 +107,100 @@
 [Stegsolve](http://www.caesum.com/handbook/Stegsolve.jar) — Apply various steganography techniques to images
 
 [Zsteg](https://github.com/zed-0xff/zsteg/) — PNG/BMP analysis
+
 ### 5. Reverse Engineering
+
+    
+[Androguard]() — Reverse engineer Android applications
+    
+[Angr]() — platform-agnostic binary analysis framework
+    
+[Apk2Gold]() — Yet another Android decompiler
+    
+[ApkTool]() — Android Decompiler
+    
+[Barf]() — Binary Analysis and Reverse engineering Framework
+    
+[Binary Ninja]() — Binary analysis framework
+
+[BinUtils]() — Collection of binary tools
+
+[BinWalk]() — Analyze, reverse engineer, and extract firmware images.
+
+[Boomerang]() — Decompile x86 binaries to C
+    
+[ctf_import]() — run basic functions from stripped binaries cross platform
+    
+[Frida]() — Dynamic Code Injection
+
+[GDB]() — The GNU project debugger
+    
+[GEF]() — GDB plugin
+
+[Hopper]() — Reverse engineering tool (disassembler) for OSX and Linux
+    
+[IDA Pro]() — Most used Reversing software
+
+[Jadx]() — Decompile Android files
+
+[Java Decompilers]() — An online decompiler for Java and Android APKs
+
+[Krakatau]() — Java decompiler and disassembler
+
+[Objection]() — Runtime Mobile Exploration
+
+[PEDA]() — GDB plugin (only python2.7)
+
+[Pin]() - A dynamic binary instrumentaion tool by Intel
+
+[Plasma]() — An interactive disassembler for x86/ARM/MIPS which can generate indented pseudo-code with colored syntax.
+
+[Pwndbg]() — A GDB plugin that provides a suite of utilities to hack around GDB easily.
+    
+[radare2]() — A portable reversing framework
+    
+[Triton]() — Dynamic Binary Analysis (DBA) framework
+    
+[Uncompyle]() — Decompile Python 2.7 binaries (.pyc)
+
+[WinDbg]() — Windows debugger distributed by Microsoft
+
+[Xocopy]() — Program that can copy executables with execute, but no read permission
+
+[Z3]() — a theorem prover from Microsoft Research
+
+JavaScript Deobfuscators
+
+    
+[Detox]() — A Javascript malware analysis tool
+    
+[Revelo]() — Analyze obfuscated Javascript code
+
+SWF Analyzers
+
+[RABCDAsm](https://github.com/CyberShadow/RABCDAsm) — Collection of utilities including an ActionScript 3 assembler/disassembler.
+    
+[Swftools](http://www.swftools.org/) — Collection of utilities to work with SWF files
+    
+[Xxxswf](https://bitbucket.org/Alexander_Hanel/xxxswf) — A Python script for analyzing Flash files.
+
 ### 6. Bufferoverflow Exploitation
+
 ### 7. Bruteforcers
+
+[Hashcat](https://hashcat.net/hashcat/) — Password Cracker
+    
+[John The Jumbo](https://github.com/magnumripper/JohnTheRipper) — Community enhanced version of John the Ripper
+    
+[John The Ripper](http://www.openwall.com/john/) — Password Cracker
+    
+[Nozzlr](https://github.com/intrd/nozzlr) — Nozzlr is a bruteforce framework, trully modular and script-friendly.
+    
+[Ophcrack](http://ophcrack.sourceforge.net/) — Windows password cracker based on rainbow tables.
+    
+[Patator](https://github.com/lanjelot/patator) — Patator is a multi-purpose brute-forcer, with a modular design.
+
+
 ### 8. Networking
     
 [Bro](https://www.bro.org/) — An open-source network security monitor.
