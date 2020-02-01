@@ -110,6 +110,27 @@ https://insecure-website.com/myaccount?id=123
 
 Now, if an attacker modifies the id parameter value to that of another user, then the attacker might gain access to another user's account page, with associated data and functions. 
 
+> User ID controlled by request parameters.
+
+- For example If a user has log in then the user has a specific API key or something APIs, and the logged in user has link like this https://www.example.com/myaccount?id=user1 
+
+- and if "user1" is changed to "user2" then we can access "user2" API key and retrieve resources.
+
+- https://www.example.com/myaccount?id=user1  --->>> https://www.example.com/myaccount?id=user2
+
+- Changing ID parameters
+
+> User ID controlled by request parameter,with unpredictable user IDs.
+
+- In some applications, the exploitable parameter does not have a predictable value. For example, instead of an incrementing number, an application might use globally unique identifiers (GUIDs) to identify users. Here, an attacker might be unable to guess or predict the identifier for another user. However, the GUIDs belonging to other users might be disclosed elsewhere in the application where users are referenced, such as user messages or reviews. 
+
+- If a blog post has some user name then it must be given a unique user ID with that username link.Find that user id and fuzz with other users to get API keys or resources.
+- If "user1" logs in and has user-id while sending mail - "userid?=abcdef" and that user reads blog of "user2", a blog by - user2, by clicking on "user2" name it will give us "user2" userid which will be mostly like "userid?=fghijk".
+
+- Intercept and send requests from user1 and user2's "userid" and get access controls.
+
+
+
 
 
 
