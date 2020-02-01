@@ -129,8 +129,18 @@ Now, if an attacker modifies the id parameter value to that of another user, the
 
 - Intercept and send requests from user1 and user2's "userid" and get access controls.
 
+> User ID controlled by request parameter with data leakage in redirect 
+
+- In some cases, an application does detect when the user is not permitted to access the resource, and returns a redirect to the login page. However, the response containing the redirect might still include some sensitive data belonging to the targeted user, so the attack is still successful. 
+
+- When user1 logs in and goes to my account there is his API-key.
+
+- Intercept the my account "click" and change the user-id "id?=user1" to "id?=user2" the API key of user-2 will be there.
+
+- Observe that although the response is now redirecting you to the homepage, it has a body containing the API key belonging to carlos.
 
 
+5. Horizontal to vertical Privilege Escalation
 
 
 
