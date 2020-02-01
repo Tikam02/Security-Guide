@@ -155,54 +155,10 @@ Now, if an attacker modifies the id parameter value to that of another user, the
 
 6. Insecure direct object references
 
-- Insecure direct object references (IDOR) are a subcategory of access control vulnerabilities. IDOR arises when an application uses user-supplied input to access objects directly and an attacker can modify the input to obtain unauthorized access. 
-
-> IDOR vulnerability with direct reference to database objects
-
--  Consider a website that uses the following URL to access the customer account page, by retrieving information from the back-end database:
-
-https://insecure-website.com/customer_account?customer_number=132355
-
-Here, the customer number is used directly as a record index in queries that are performed on the back-end database. If no other controls are in place, an attacker can simply modify the customer_number value, bypassing access controls to view the records of other customers. This is an example of an IDOR vulnerability leading to horizontal privilege escalation.
-
-An attacker might be able to perform horizontal and vertical privilege escalation by altering the user to one with additional privileges while bypassing access controls. Other possibilities include exploiting password leakage or modifying parameters once the attacker has landed in the user's accounts page, for example. 
 
 
-> IDOR vulnerability with direct reference to static files
-
- IDOR vulnerabilities often arise when sensitive resources are located in static files on the server-side filesystem. For example, a website might save chat message transcripts to disk using an incrementing filename, and allow users to retrieve these by visiting a URL like the following:
-
-https://insecure-website.com/static/12144.txt
-
-In this situation, an attacker can simply modify the filename to retrieve a transcript created by another user and potentially obtain user credentials and other sensitive data. 
-
-7. Access control vulnerabilities in multi-step processes
-
- Many web sites implement important functions over a series of steps. This is often done when a variety of inputs or options need to be captured, or when the user needs to review and confirm details before the action is performed. For example, administrative function to update user details might involve the following steps:
-
-    Load form containing details for a specific user. Submit changes. Review the changes and confirm. 
-
-Sometimes, a web site will implement rigorous access controls over some of these steps, but ignore others. For example, suppose access controls are correctly applied to the first and second steps, but not to the third step. Effectively, the web site assumes that a user will only reach step 3 if they have already completed the first steps, which are properly controlled. Here, an attacker can gain unauthorized access to the function by skipping the first two steps and directly submitting the request for the third step with the required parameters. 
 
 
-8. Referer-based access control
 
-- 
-
-Some websites base access controls on the Referer header submitted in the HTTP request. The Referer header is generally added to requests by browsers to indicate the page from which a request was initiated.
-
-For example, suppose an application robustly enforces access control over the main administrative page at /admin, but for sub-pages such as /admin/deleteUser only inspects the Referer header. If the Referer header contains the main /admin URL, then the request is allowed.
-
-In this situation, since the Referer header can be fully controlled by an attacker, they can forge direct requests to sensitive sub-pages, supplying the required Referer header, and so gain unauthorized access. 
-
-9. How to prevent access control vulnerabilities
-
-Access control vulnerabilities can generally be prevented by taking a defense-in-depth approach and applying the following principles:
-
-    - Never rely on obfuscation alone for access control.
-    - Unless a resource is intended to be publicly accessible, deny access by default.
-    - Wherever possible, use a single application-wide mechanism for enforcing access controls.
-    - At the code level, make it mandatory for developers to declare the access that is allowed for each resource, and deny access by default.
-    - Thoroughly audit and test access controls to ensure they are working as designed.
 
 
