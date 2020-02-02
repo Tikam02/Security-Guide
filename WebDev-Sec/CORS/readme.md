@@ -2,6 +2,8 @@
 
 ## What is CORS?
 
+- Web pages are under the restrictions of same-origin policy, which means scripts contained in a web page cannot access data in another page with different origin. 
+
 - Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. A web application executes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, or port) from its own.
 
 > An example of a cross-origin request: the front-end JavaScript code served from https://domain-a.com uses XMLHttpRequest to make a request for https://domain-b.com/data.json.
@@ -39,4 +41,4 @@ Access-Control-Max-Age: 86400
 
 - [Mozila](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
-- 
+- [CORS, preflighted requests & OPTIONS method ](https://dev.to/effingkay/cors-preflighted-requests--options-method-3024)
