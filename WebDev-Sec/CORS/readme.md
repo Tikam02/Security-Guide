@@ -14,6 +14,7 @@
 
 - CORS failures result in errors, but for security reasons, specifics about the error are not available to JavaScript. All the code knows is that an error occurred. The only way to determine what specifically went wrong is to look at the browser's console for details.
 
+
 a. Pre-flight Requests
 
 - A preflight request is automatically issued by a browser and in normal cases, front-end developers don't need to craft such requests themselves. It appears when request is qualified as "to be preflighted" and ommited for simple requests.
@@ -37,6 +38,25 @@ Access-Control-Max-Age: 86400
 ```
 - The preflight response can be optionally cached for the requests created in the same url using Access-Control-Max-Age header like in the above example.
 
+b. to enable CORS for a general CORS request, you need to add the following headers:
+
+- For preflight request which can be filtered by check method is ‘OPTIONS’:
+
+```javascript
+Access-Control-Allow-Origin
+Access-Control-Allow-Credentials
+```
+
+- For actual CORS request which is not OPTIONS and has a Access-Control-Request-Method header:
+
+```javascript
+Access-Control-Allow-Origin
+Access-Control-Allow-Methods
+Access-Control-Allow-Headers
+Access-Control-Allow-Credentials
+(Optional) Access-Control-Max-Age
+(Optional) Access-Control-Expose-Headers
+```
 # References:
 
 - [Mozila](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
