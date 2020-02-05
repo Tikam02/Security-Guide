@@ -57,6 +57,16 @@ Access-Control-Allow-Credentials
 (Optional) Access-Control-Max-Age
 (Optional) Access-Control-Expose-Headers
 ```
+
+## CORS Exploit
+
+- Prerequisites
+
+    - BURP HEADER> Origin: https://evil.com
+    - VICTIM HEADER> Access-Control-Allow-Credential: true
+    - VICTIM HEADER> Access-Control-Allow-Origin: https://evil.com
+
+
 # References:
 
 - [Mozila](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
