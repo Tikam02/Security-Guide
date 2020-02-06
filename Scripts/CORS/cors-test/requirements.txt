@@ -1,0 +1,6 @@
+requests
+gevent
+tldextract
+argparse
+colorama
+future
