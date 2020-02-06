@@ -1,7 +1,7 @@
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
-var port = 80
+var port = 4000
 
 http.createServer(function(req, res) {
     if (req.url == '/cors-poc') {
