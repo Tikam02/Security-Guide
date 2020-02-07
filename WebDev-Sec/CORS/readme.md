@@ -72,3 +72,5 @@ Access-Control-Allow-Credentials
 - [Mozila](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
 - [CORS, preflighted requests & OPTIONS method ](https://dev.to/effingkay/cors-preflighted-requests--options-method-3024)
+
+
