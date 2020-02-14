@@ -76,4 +76,14 @@ ftp.example.com
 ```bash
 $ cat hosts-amass.txt hosts-crtsh.txt hosts-certspotter.txt hosts-wordlist.txt | sort -u > hosts-all.txt
 ```
+10. Filter only Inscope domains
 
+- Create a hosts-ignore.txt file and put all the out-of scope domains and IP.
+
+- next use grep to remove out of scope hosts and create a hosts-inscope.txt
+
+```bash
+$ grep -vf hosts-ignore.txt hosts-all.txt > hosts-inscope.txt
+```
+
+11. Next use MassDns - becuase we need 
