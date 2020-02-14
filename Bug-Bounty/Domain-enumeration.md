@@ -68,7 +68,7 @@ ftp.example.com
 
 	- hosts-amass.txt
         - hosts-crtsh.txt
-        - hosts-certspotter.txt
+        - hosts-certspotter.txt 
         - hosts-wordlist.txt
 
 9. This will be merged, sorted and duplicates will be removed and written to a file named hosts-all.txt.
@@ -86,4 +86,44 @@ $ cat hosts-amass.txt hosts-crtsh.txt hosts-certspotter.txt hosts-wordlist.txt |
 $ grep -vf hosts-ignore.txt hosts-all.txt > hosts-inscope.txt
 ```
 
-11. Next use MassDns - becuase we need 
+11. Next use MassDns - becuase we need additional information and ports and services,
+
+```bash
+$ massdns -r resolvers.txt -t A -o S -w massdns.out hosts-inscope.txt
+```
+
+12. Filter Only Online services
+
+```bash
+$ cat massdns.out | awk '{print $1}' | sed 's/.$//' | sort -u > hosts-online.txt
+```
+
+13. After determining which hosts are online, the next interesting part is to find open ports. 
+
+14. et all the IP’s from the previous massdns.out
+
+```bash
+$ cat massdns.out | awk '{print $3}' | sort -u | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" > ips-online.txt
+```
+
+15. Run massscan
+
+```bash
+sudo masscan -iL ips-online.txt --rate 10000 -p1-65535 --only-open -oL masscan.out
+```
+
+> Output 
+
+```bash
+$ cat masscan.out 
+#masscan
+open tcp 25 13.111.18.27 1556466271
+open tcp 80 209.133.79.61 1556466775
+open tcp 443 209.133.79.66 1556467350
+```
+
+16. Once this is complete I can use nmap to see which services that are running on each port:
+
+```bash
+$ nmap -sV -p[port,port,...] [ip]
+```
