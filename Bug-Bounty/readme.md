@@ -1,3 +1,10 @@
+## Files:
+
+ - [Domain Enumeration](./Domain-enumeration.md)
+ - [Recon ](./recon.md)
+ - [Tools](./tools.md)
+ 
+
 ## Bug Bounty Resources
 [The Bug Hunters Methodology](https://github.com/jhaddix/tbhm)
 
