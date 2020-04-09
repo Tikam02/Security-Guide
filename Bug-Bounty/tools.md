@@ -7,6 +7,8 @@
 
 - [Lazy recon](https://github.com/capt-meelo/LazyRecon)
 
+- [Penetration testing Tools](https://github.com/Aptive/penetration-testing-tools)
+
 
 ## Payloads 
 

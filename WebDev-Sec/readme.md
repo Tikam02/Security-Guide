@@ -2,12 +2,27 @@
 
 ******
 
-## Resources
+## Getting Started
 
 - [Hackerone Hacker101](https://www.hackerone.com/hacker101)
 - [Bugcrowd University](https://www.bugcrowd.com/hackers/bugcrowd-university/)
 - [OWASP Top 10 Explained by detectify](https://www.youtube.com/playlist?list=PLbKl_RtocZetEzdHyZCgZHwaUHjE_jeQT)
+- [Web Security Learning](https://chybeta.github.io/2017/08/19/Web-Security-Learning/)
+- [Software Security Learning](https://github.com/CHYbeta/Software-Security-Learning)
+- [Learn git](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc)
+- [Penetration testing study notes](https://github.com/AnasAboureada/Penetration-Testing-Study-Notes)
+- [Awesome Security Writeups and POC](https://github.com/dhaval17/awsome-security-write-ups-and-POCs)
+- [Hacking Articles](https://www.hackingarticles.in/web-penetration-testing/)
+- [Awesome Netweoking](https://github.com/clowwindy/Awesome-Networking)
+- [Pentesting Bible](https://github.com/blaCCkHatHacEEkr/PENTESTING-BIBLE/tree/master/2-part-100-article)
 
+## Blogs that will get you from zero to one
+
+- [Portswigger](https://portswigger.net/blog)
+- [detectify](https://labs.detectify.com/)
+- [Intigriti](https://blog.intigriti.com/)
+- [Whitton](https://whitton.io/)
+- [Bug bounty forum](https://bugbountyforum.com/blogs/)
 
 ## XSS
 
@@ -24,6 +39,13 @@
 
 ## Challenges
 
+- [XSS challenge by @m0z](http://m0z.altervista.org/XSS/)
+- [Digi nija pentesting labs](https://digi.ninja/labs.php)
+- [IP Based Auth Bypass](https://authlab.digi.ninja/Bypass)
+- [NoSQLi Lab ](https://digi.ninja/projects/nosqli_lab.php)
+- [Web socket challenge](https://ws.digi.ninja/)
+- [JWT challenge - digi ninja](https://authlab.digi.ninja/Auth1)
+- [Leaky JWT - digi ninja](https://authlab.digi.ninja/Leaky_JWT)
 ## Burpsuite Plugins
 
 - [Hackbar by d3vulbug](https://github.com/d3vilbug/HackBar)
