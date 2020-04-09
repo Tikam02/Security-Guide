@@ -1,59 +1,42 @@
 ## Files:
 
- - [Domain Enumeration](./Domain-enumeration.md)
- - [Recon ](./recon.md)
- - [Tools](./tools.md)
+- [Domain Enumeration](./Domain-enumeration.md)
+
+- [Recon ](./recon.md)
+
+- [Tools](./tools.md)
  
 
 ## Bug Bounty Resources
-[The Bug Hunters Methodology](https://github.com/jhaddix/tbhm)
 
-[Awesome Bug Bounty](https://github.com/djadmin/awesome-bug-bounty)
+- [The Bug Hunters Methodology](https://github.com/jhaddix/tbhm)
 
-[ Bug Bounty Guide is a launchpad for bug bounty programs and bug bounty hunters. ](https://github.com/EdOverflow/bugbountyguide)
+- [Awesome Bug Bounty](https://github.com/djadmin/awesome-bug-bounty)
 
-[Tools Lists- by (https://github.com/MrR3boot)](https://github.com/MrR3boot/mrr3boot.github.io)
+- [ Bug Bounty Guide is a launchpad for bug bounty programs and bug bounty hunters. ](https://github.com/EdOverflow/bugbountyguide)
 
-[Awesome Bug Bounty - part 2](https://github.com/Muhammd/awesome-bug-bounty)
+- [Tools Lists- by (https://github.com/MrR3boot)](https://github.com/MrR3boot/mrr3boot.github.io)
 
-[Bug Bounty Cheatsheet](https://github.com/EdOverflow/bugbounty-cheatsheet)
+- [Awesome Bug Bounty - part 2](https://github.com/Muhammd/awesome-bug-bounty)
 
-[Awesome security](https://github.com/sbilly/awesome-security)
+- [Bug Bounty Cheatsheet](https://github.com/EdOverflow/bugbounty-cheatsheet)
 
-[Concise Cheatsheet](https://github.com/rudymatela/concise-cheat-sheets/blob/master/README.md)
+- [Awesome security](https://github.com/sbilly/awesome-security)
 
-[Web CTF Cheatsheet](https://github.com/w181496/Web-CTF-Cheatsheet/blob/master/README.md)
+- [Concise Cheatsheet](https://github.com/rudymatela/concise-cheat-sheets/blob/master/README.md)
 
-[MobileApp-Pentest-Cheatsheet](https://github.com/sh4hin/MobileApp-Pentest-Cheatsheet)
+- [Web CTF Cheatsheet](https://github.com/w181496/Web-CTF-Cheatsheet/blob/master/README.md)
 
+- [MobileApp-Pentest-Cheatsheet](https://github.com/sh4hin/MobileApp-Pentest-Cheatsheet)
 
+- [pentest Bookmarks](https://github.com/jhaddix/pentest-bookmarks/blob/master/wiki/BookmarksList.wiki)
 
-[pentest Bookmarks](https://github.com/jhaddix/pentest-bookmarks/blob/master/wiki/BookmarksList.wiki)
-
-[Bug Bounty references](https://github.com/ngalongc/bug-bounty-reference)
+- [Bug Bounty references](https://github.com/ngalongc/bug-bounty-reference)
 
 *******
 ## POC and Writeups
-[awsome-security-write-ups-and-POCs](https://github.com/dhaval17/awsome-security-write-ups-and-POCs)
 
-***************
-## Tools 
-[Subjack](https://github.com/haccer/subjack)
+- [awsome-security-write-ups-and-POCs](https://github.com/dhaval17/awsome-security-write-ups-and-POCs)
 
-[Security Tools](https://github.com/bl4de/security-tools)
+- [List of bug-bounty writeups](https://pentester.land/list-of-bug-bounty-writeups.html)
 
-[Lazy recon](https://github.com/capt-meelo/LazyRecon)
-
-[waybackSqliScanner](https://github.com/ghostlulzhacks/waybackSqliScanner)
-
-[Awesome Burp Extensions](https://github.com/snoopysecurity/awesome-burp-extensions)
-
-[Payloads](https://github.com/foospidy/payloads)
-
-[PayloadAllThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
-
-[XSS Payloads](https://github.com/payloadbox/xss-payload-list)
-
-[SQLI Payloads](https://github.com/trietptm/SQL-Injection-Payloads)
-
-[Waybackurl](https://github.com/tomnomnom/waybackurls)
