@@ -185,6 +185,15 @@ oneliner to open a bunch of hosts/urls #bugbountytips
 
 firefox `cat urls.txt | awk '{if(index($1,"http")){print $1}else{print "http://"$1;print "https://"$1}}' | tr "\n" " "`
 
+
+
+
+firefox `cat urls.txt | awk '{if(index($1,"http")){print $1}else{print "http://"$1;print "https://"$1}}'
+firefox `cat urls.txt | awk '{if(index($1,"http")){print $1}else{print "http://"$1;print "https://"$1}}' | tr "\n" " "`
+ 
+chromium-browser `cat urls.txt | awk '{if(index($1,"http")){print $1}else{print "http://"$1;print "https://"$1}}'
+chromium-browser `cat urls.txt | awk '{if(index($1,"http")){print $1}else{print "http://"$1;print "https://"$1}}' | tr "\n" " "`
+
 -----------------------------------
 
 
